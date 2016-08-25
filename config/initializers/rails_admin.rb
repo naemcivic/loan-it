@@ -6,6 +6,22 @@ RailsAdmin.config do |config|
         exclude_fields :created_at, :updated_at, :group_name, :id_number 
       end
   end
+
+    config.model 'Group' do
+     list do
+        exclude_fields :created_at, :updated_at 
+      end
+  end
+
+    config.model 'User' do
+     list do
+        include_fields :id, :email, :devices
+      end
+  end
+
+
+
+
   
   ### Popular gems integration
 
