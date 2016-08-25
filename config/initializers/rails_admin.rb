@@ -1,5 +1,11 @@
 RailsAdmin.config do |config|
   #
+
+  config.model 'Device' do
+     list do
+        exclude_fields :created_at, :updated_at, :group_name, :id_number 
+      end
+  end
   
   ### Popular gems integration
 
