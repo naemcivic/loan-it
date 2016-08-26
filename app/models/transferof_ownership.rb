@@ -1,0 +1,2 @@
+class TransferofOwnership < ApplicationRecord
+end

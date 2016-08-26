@@ -9,7 +9,7 @@ RailsAdmin.config do |config|
 
     config.model 'Group' do
      list do
-        exclude_fields :created_at, :updated_at 
+        exclude_fields :created_at, :updated_at, :user_id
       end
   end
 
