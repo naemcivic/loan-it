@@ -72,12 +72,8 @@ class DevicesController < ApplicationController
       params.require(:device).permit(:name, :id_number)
     end
 
-    ##def change_Assigned_Value_When_Device_isAssigned_to_a_User
-      #if @device.user_id.present?
-        #@device.assigned == true
-      #else 
-        #@device.assigned == false
-      #end
-    #end
+
+
+    
 
 end

@@ -16,6 +16,8 @@
       <tr>
         <td><%= loan.description %></td>
         <td><%= loan.signature %></td>
+        <td><%= loan.devices.name %></td>
+
         <td><%= link_to 'Show', loan %></td>
         <td><%= link_to 'Edit', edit_loan_path(loan) %></td>
         <td><%= link_to 'Destroy', loan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -24,6 +26,9 @@
     <% end %>
   </tbody>
 </table>
+
+
+
 
 <br>
 
