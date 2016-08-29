@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :loans
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :devices
   devise_for :users
@@ -7,6 +8,12 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'devices#index'
+
+  get '/loans', to: 'loans#index'
+
+  get '/loans/:id', to: 'loans#show'
+
+  get '/loans/:id/edit', to: 'loans#edit'
 
   
 

@@ -1,5 +1,6 @@
 class DevicesController < ApplicationController
   before_action :set_device, only: [:show, :edit, :update, :destroy]
+  #after_update :change_Assigned_Value_When_Device_isAssigned_to_a_User
 
   # GET /devices
   # GET /devices.json
@@ -24,8 +25,7 @@ class DevicesController < ApplicationController
   # POST /devices
   # POST /devices.json
   def create
-    @device = Device.new(device_params)
-
+    @device = Device.new(device_params) 
     respond_to do |format|
       if @device.save
         format.html { redirect_to @device, notice: 'Device was successfully created.' }
@@ -71,4 +71,13 @@ class DevicesController < ApplicationController
     def device_params
       params.require(:device).permit(:name, :id_number)
     end
+
+    ##def change_Assigned_Value_When_Device_isAssigned_to_a_User
+      #if @device.user_id.present?
+        #@device.assigned == true
+      #else 
+        #@device.assigned == false
+      #end
+    #end
+
 end
