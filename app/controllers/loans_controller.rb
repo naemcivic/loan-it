@@ -1,4 +1,5 @@
 class LoansController < ApplicationController
+  before_action :set_device
   before_action :set_loan, only: [:show, :edit, :update, :destroy]
 
   # GET /loans
@@ -14,7 +15,7 @@ class LoansController < ApplicationController
 
   # GET /loans/new
   def new
-    @loan = Loan.new
+    @loan = Loan.new(:device_id => params[:device_id])
   end
 
   # GET /loans/1/edit
@@ -24,12 +25,13 @@ class LoansController < ApplicationController
   # POST /loans
   # POST /loans.json
   def create
-    @loan = Loan.new(loan_params)
+    #@loan = Loan.new(loan_params)
+    @loan = @device.loans.create(loan_params)
     
 
     respond_to do |format|
       if @loan.save
-        format.html { redirect_to @loan, notice: 'Loan was successfully created.' }
+        format.html { redirect_to device_loans_url, notice: 'Loan was successfully created.' }
         format.json { render :show, status: :created, location: @loan }
       else
         format.html { render :new }
@@ -71,5 +73,9 @@ class LoansController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def loan_params
       params.require(:loan).permit(:description, :signature)
+    end
+
+    def set_device
+      @device = Device.find(params[:device_id])
     end
 end

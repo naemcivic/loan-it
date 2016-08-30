@@ -1,7 +1,6 @@
 class DevicesController < ApplicationController
   before_action :set_device, only: [:show, :edit, :update, :destroy]
-  #after_update :change_Assigned_Value_When_Device_isAssigned_to_a_User
-
+  
   # GET /devices
   # GET /devices.json
   def index
@@ -71,9 +70,4 @@ class DevicesController < ApplicationController
     def device_params
       params.require(:device).permit(:name, :id_number)
     end
-
-
-
-    
-
 end

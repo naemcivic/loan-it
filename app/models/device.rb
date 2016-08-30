@@ -15,6 +15,7 @@
 
 class Device < ApplicationRecord
 	belongs_to :group
-	belongs_to :loan
-	belongs_to :user
+	has_many :users, through: :loan
+	has_many :loans
+
 end

@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  resources :loans
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  resources :devices
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -9,13 +7,19 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'devices#index'
 
-  get '/loans', to: 'loans#index'
-
-  get '/loans/:id', to: 'loans#show'
-
-  get '/loans/:id/edit', to: 'loans#edit'
+   resources :devices do
+    resources :loans
+  end
 
   
+
+  #get '/loans', to: 'loans#index'
+
+  #get '/devices/:id/loans', to: 'loans#new'
+
+  #get '/loans/:id', to: 'loans#show'
+
+  #get '/loans/:id/edit', to: 'loans#edit'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

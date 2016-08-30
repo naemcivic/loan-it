@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160829152344) do
+ActiveRecord::Schema.define(version: 20160830141610) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,7 +41,6 @@ ActiveRecord::Schema.define(version: 20160829152344) do
     t.string   "group_name"
     t.integer  "group_id"
     t.boolean  "assigned"
-    t.integer  "loan_id"
   end
 
   create_table "groups", force: :cascade do |t|
@@ -56,6 +55,7 @@ ActiveRecord::Schema.define(version: 20160829152344) do
     t.text     "signature"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "device_id"
   end
 
   create_table "transferof_ownerships", force: :cascade do |t|
