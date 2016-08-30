@@ -5,7 +5,7 @@ class LoansController < ApplicationController
   # GET /loans
   # GET /loans.json
   def index
-    @loans = Loan.all
+    @loans = @device.loans
   end
 
   # GET /loans/1
@@ -60,7 +60,7 @@ class LoansController < ApplicationController
     @loan.destroy
     respond_to do |format|
       format.html { redirect_to device_loans_url, notice: 'Loan was successfully destroyed.' }
-      format.json { head :no_content }
+      format.json { head :no_content  }
     end
   end
 

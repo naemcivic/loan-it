@@ -16,13 +16,11 @@
     <% @devices.each do |device| %>
       <tr>
         <td><%= device.name %></td>
-        <td><%= link_to 'Show', device %></td>
-        <td><%= link_to 'Edit', edit_device_path(device) %></td>
-        <td><%= link_to 'Destroy', device, method: :delete, data: { confirm: 'Are you sure?' } %></t>
-
         <td><%= link_to 'Loan-IT', new_device_loan_path(device) %></td>
+        <td><%= link_to 'Show Loans', device_loans_path(device) %></td>
+
       
-        </td>
+        
 
       </tr>
     <% end %>
