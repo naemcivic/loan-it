@@ -1,1 +1,0 @@
-json.array! @group_controllers, partial: 'group_controllers/group_controller', as: :group_controller

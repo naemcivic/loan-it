@@ -77,6 +77,4 @@ class LoansController < ApplicationController
     def set_device
       @device = Device.find(params[:device_id])
     end
-
-
 end
