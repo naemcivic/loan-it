@@ -16,15 +16,15 @@
     <% @devices.each do |device| %>
       <tr>
         <td><%= device.name %></td>
-        <% if device.loans.present? %>
+        <% if device.active_loan.present? %>
         <td>Device Unavailable</td>
         <% else %>
         <td><%= link_to 'Loan-IT', new_device_loan_path(device) %></td>
         <% end %>
         <td><%= link_to 'Show Loans', device_loans_path(device) %></td>
 
-      
-        
+
+
 
       </tr>
     <% end %>

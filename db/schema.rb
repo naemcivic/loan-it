@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160830200752) do
+ActiveRecord::Schema.define(version: 20160831143036) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,10 +53,11 @@ ActiveRecord::Schema.define(version: 20160830200752) do
   create_table "loans", force: :cascade do |t|
     t.text     "description"
     t.text     "signature"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.integer  "device_id"
     t.integer  "user_id"
+    t.boolean  "active",      default: false
   end
 
   create_table "transferof_ownerships", force: :cascade do |t|

@@ -9,7 +9,7 @@
       <th>Description</th>
       <th>Signature</th>
       <th>Device ID</th>
-   
+
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -21,7 +21,11 @@
         <td><%= loan.signature %></td>
         <td><%= loan.device_id %></td>
         <td><%= loan.created_at %></td>
-        <td><%= link_to 'Destroy', [@device, loan], method: :delete, data: { confirm: 'Relinquish Device?' } %></td>
+        <% if loan.active %>
+        <td><%= link_to 'Relinquish Device', [@device, loan], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% else %>
+        <td></td>
+        <% end %>
       </tr>
       </tr>
     <% end %>

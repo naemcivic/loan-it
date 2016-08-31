@@ -15,6 +15,9 @@
 
 class Device < ApplicationRecord
 	belongs_to :group
-	has_many :loans
+	has_many :loans, ->() { order(created_at: :desc)}
+
+	has_one :active_loan, ->() { where(active: true) }, class_name: Loan
+
 	has_many :users, through: :loans
 end

@@ -27,6 +27,7 @@ class LoansController < ApplicationController
   def create
     #@loan = Loan.new(loan_params)
     @loan = @device.loans.create(loan_params)
+
     
 
     respond_to do |format|
@@ -57,7 +58,7 @@ class LoansController < ApplicationController
   # DELETE /loans/1
   # DELETE /loans/1.json
   def destroy
-    @loan.destroy
+    @loan.update(active: false)
     respond_to do |format|
       format.html { redirect_to device_loans_url, notice: 'Loan was successfully destroyed.' }
       format.json { head :no_content  }
@@ -78,4 +79,6 @@ class LoansController < ApplicationController
     def set_device
       @device = Device.find(params[:device_id])
     end
+
+    
 end
