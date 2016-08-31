@@ -1,6 +1,5 @@
 FactoryGirl.define do
 	factory :loan do
-		description "SOMETHING"
 		active true
 		signature "text"
 

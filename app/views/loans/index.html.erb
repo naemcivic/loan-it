@@ -6,9 +6,8 @@
 <table>
   <thead>
     <tr>
-      <th>Description</th>
       <th>Signature</th>
-      <th>Device ID</th>
+      <th>Time</th>
 
       <th colspan="3"></th>
     </tr>
@@ -17,9 +16,7 @@
   <tbody>
     <% @loans.each do |loan| %>
       <tr>
-        <td><%= loan.description %></td>
         <td><%= loan.signature %></td>
-        <td><%= loan.device_id %></td>
         <td><%= loan.created_at %></td>
         <% if loan.active %>
         <td><%= link_to 'Relinquish Device', [@device, loan], method: :delete, data: { confirm: 'Are you sure?' } %></td>
