@@ -1,0 +1,1 @@
+json.partial! "group_controllers/group_controller", group_controller: @group_controller
