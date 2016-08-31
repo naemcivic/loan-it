@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'devise'
-
 gem 'rails-rename', '~> 1.0.0'
 
 gem 'remotipart', github: 'mshibuya/remotipart'
@@ -43,6 +42,13 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'annotate'
+  gem 'rspec-rails', '~> 3.5'
+  gem "factory_girl_rails", "~> 4.0"
+end
+
+group :test do
+  gem 'shoulda-matchers', '~> 3.1'
+  gem 'rails-controller-testing'
 end
 
 group :development do

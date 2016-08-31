@@ -26,9 +26,7 @@ class LoansController < ApplicationController
   # POST /loans.json
   def create
     #@loan = Loan.new(loan_params)
-    @loan = @device.loans.create(loan_params)
-
-    
+    @loan = @device.loans.build(loan_params)
 
     respond_to do |format|
       if @loan.save
@@ -80,5 +78,5 @@ class LoansController < ApplicationController
       @device = Device.find(params[:device_id])
     end
 
-    
+
 end
