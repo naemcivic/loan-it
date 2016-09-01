@@ -16,9 +16,15 @@
     <%= f.text_field :name %>
   </div>
 
+
   <div class="field">
     <%= f.label :id_number %>
     <%= f.number_field :id_number %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Group %>
+    <%= f.collection_select(:group_id, Group.all, :id, :name, {}, class: "browser-default") %>
   </div>
 
   <div class="actions">

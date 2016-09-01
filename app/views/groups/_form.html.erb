@@ -16,6 +16,8 @@
     <%= f.text_area :name %>
   </div>
 
+  <%= f.hidden_field :group_id, value: group.id %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

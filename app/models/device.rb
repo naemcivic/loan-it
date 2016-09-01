@@ -24,4 +24,8 @@ class Device < ApplicationRecord
 	def loan_email
 		active_loan.email
 	end
+
+	def device_group
+		try(:group).try(:name) || "No Group"
+	end
 end

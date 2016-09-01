@@ -2,11 +2,11 @@
 <%= Time.now.strftime("%H:%M     -    %A    -    %d/%m/%Y") %>
 </h2>
 <h3> Welcome </h3>
-<h1>Honda</h1>
 
 <table>
   <thead>
     <tr>
+    <th>Group</th>
       <th>Name</th>
       <th>Email</th>
       <th colspan="3"></th>
@@ -16,6 +16,7 @@
   <tbody>
     <% @devices.each do |device| %>
       <tr>
+      <td><%= device.device_group  %></td>
         <td><%= device.name %></td>
         <% if device.active_loan.present? %>
         <td><%= device.loan_email  %></td>
@@ -24,6 +25,7 @@
         <% end %>
         <td><%= %></td>
         <td><%= link_to 'Show loan history', device_loans_path(device) %></td>
+        <td><%= link_to 'Edit Device', edit_device_path(device) %></td>
 
 
 
@@ -43,6 +45,7 @@
 <%= link_to 'Admin', rails_admin.dashboard_path %>
 
 <%= link_to 'Create New Group', new_group_path %>
+
 
 
 
