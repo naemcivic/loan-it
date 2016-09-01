@@ -8,6 +8,7 @@
     <tr>
       <th>Signature</th>
       <th>Time</th>
+      <th>Email</th>
 
       <th colspan="3"></th>
     </tr>
@@ -18,6 +19,8 @@
       <tr>
         <td><%= loan.signature %></td>
         <td><%= loan.created_at %></td>
+        <td><%= loan.email  %></td>
+
         <% if loan.active %>
         <td><%= link_to 'Relinquish Device', [@device, loan], method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% else %>

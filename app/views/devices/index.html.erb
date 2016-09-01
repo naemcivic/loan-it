@@ -8,6 +8,7 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Email</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,7 +18,7 @@
       <tr>
         <td><%= device.name %></td>
         <% if device.active_loan.present? %>
-        <td>Device Unavailable</td>
+        <td><%= device.loan_email  %></td>
         <% else %>
         <td><%= link_to 'Loan-IT', new_device_loan_path(device) %></td>
         <% end %>

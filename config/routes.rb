@@ -8,11 +8,12 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'devices#index'
 
-   resources :devices do
+  resources :devices do
     resources :loans
   end
 
-  
+
+
 
   #get '/loans', to: 'loans#index'
 

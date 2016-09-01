@@ -58,7 +58,7 @@ class LoansController < ApplicationController
   def destroy
     @loan.update(active: false)
     respond_to do |format|
-      format.html { redirect_to device_loans_url, notice: 'Loan was successfully destroyed.' }
+      format.html { redirect_to device_loans_url, notice: 'Device was relinquished.' }
       format.json { head :no_content  }
     end
   end
@@ -71,7 +71,7 @@ class LoansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def loan_params
-      params.require(:loan).permit(:signature)
+      params.require(:loan).permit(:signature, :user_id)
     end
 
     def set_device

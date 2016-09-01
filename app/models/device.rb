@@ -20,4 +20,8 @@ class Device < ApplicationRecord
 	has_one :active_loan, ->() { where(active: true) }, class_name: Loan
 
 	has_many :users, through: :loans
+
+	def loan_email
+		active_loan.email
+	end
 end

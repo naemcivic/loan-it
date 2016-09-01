@@ -16,6 +16,9 @@
     <%= f.text_area :signature %>
   </div>
 
+  <!-- The line below returns the current users ID so it can be used to associate their email with a loan -->
+  <%= f.hidden_field :user_id, value: current_user.id %>
+
   <div class="actions">
     <%= f.submit %>
   </div>
