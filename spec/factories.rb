@@ -1,4 +1,7 @@
 FactoryGirl.define do
+  factory :group do
+    name "MyText"
+  end
 	factory :loan do
 		active true
 		signature "text"
