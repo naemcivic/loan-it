@@ -1,48 +1,43 @@
 <h2>
 <%= Time.now.strftime("%H:%M     -    %A    -    %d/%m/%Y") %>
 </h2>
-<h3> Welcome </h3>
 
-<table>
-  <thead>
-    <tr>
-    <th>Group</th>
+<% @devices.group_by(&:device_group).each do |group_name, devices| %>
+
+  <h3> <%= group_name %> </h3>
+
+  <table>
+    <thead>
+      <tr>
       <th>Name</th>
       <th>Email</th>
       <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @devices.each do |device| %>
-      <tr>
-      <td><%= device.device_group  %></td>
-        <td><%= device.name %></td>
-        <% if device.active_loan.present? %>
-        <td><%= device.loan_email  %></td>
-        <% else %>
-        <td><%= link_to 'Loan-IT', new_device_loan_path(device) %></td>
-        <% end %>
-        <td><%= %></td>
-        <td><%= link_to 'Show loan history', device_loans_path(device) %></td>
-        <td><%= link_to 'Edit Device', edit_device_path(device) %></td>
-
-
-
-
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
+    <tbody>
+      <% devices.each do |device| %>
+        <tr/>
+          <td><%= device.name %></td>
+          <% if device.active_loan.present? %>
+          <td><%= device.loan_email  %></td>
+          <% else %>
+          <td><%= link_to 'Loan-IT', new_device_loan_path(device) %></td>
+          <% end %>
+          <td><%= %></td>
+          <td><%= link_to 'Show loan history', device_loans_path(device) %></td>
+          <td><%= link_to 'Edit Device', edit_device_path(device) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
+<% end %>
 
 
 
 
 <br>
-
-<%= link_to 'Admin', rails_admin.dashboard_path %>
 
 <%= link_to 'Create New Group', new_group_path %>
 
