@@ -1,7 +1,4 @@
 FactoryGirl.define do
-  factory :group do
-    name "MyText"
-  end
 	factory :loan do
 		active true
 		signature "text"
@@ -19,5 +16,9 @@ FactoryGirl.define do
 	factory :device do
 		name "iPad"
 		id_number "3"
+	end
+
+  factory :group do
+		name "Honda"
 	end
 end
