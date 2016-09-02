@@ -21,6 +21,8 @@
   <p><%= f.label :password_confirmation %><br />
   <%= f.password_field :password_confirmation %></p>
 
+  <%= f.hidden_field :user_id, value: @user.id %>
+
 
   <div class="actions">
     <%= f.submit %>

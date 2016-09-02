@@ -22,12 +22,9 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_many :loans, ->() { where(active: true).order(created_at: :desc) }
-
-
-
-
-  has_many :devices, through: :loans
+	has_many :devices, through: :loans
   has_many :groups
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
@@ -35,8 +32,8 @@ class User < ActiveRecord::Base
   	try(:email)
 	end
 
-	def devicename
-    try(:device).try(:name) || "No Device"
+	def device_names
+    devices.collect(&:name)
   end
 
 end
