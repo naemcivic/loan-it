@@ -17,6 +17,8 @@
 					<tr>
 						<td> <%= device.name %> </td>
 					  <td><%= link_to "Edit", edit_device_path(device) %></td>
+					  <td><%= link_to "Show Loan History", device_loans_path(device) %></td>
+
 
 					</tr>
 				<% end %>
