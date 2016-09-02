@@ -30,6 +30,4 @@ class Loan < ApplicationRecord
   def email
     try(:user).try(:email) || "No Email"
   end
-
-
 end
