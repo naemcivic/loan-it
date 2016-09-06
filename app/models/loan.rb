@@ -13,7 +13,7 @@
 #
 
 class Loan < ApplicationRecord
-  validates_presence_of :signature
+  #validates_presence_of :signature
   belongs_to :device
   belongs_to :user
 

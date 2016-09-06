@@ -14,6 +14,7 @@
 #
 
 class Device < ApplicationRecord
+
 	belongs_to :group
 
 	has_many :loans, ->() { order(created_at: :desc)}
