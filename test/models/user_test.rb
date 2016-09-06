@@ -17,6 +17,7 @@
 #  updated_at             :datetime         not null
 #  group_id               :integer
 #  admin                  :boolean          default(FALSE)
+#  name                   :string
 #
 
 require 'test_helper'
