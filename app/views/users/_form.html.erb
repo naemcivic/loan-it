@@ -21,6 +21,10 @@
   <p><%= f.label :password_confirmation %><br />
   <%= f.password_field :password_confirmation %></p>
 
+  <div class="field">
+    <%= f.check_box (:admin) %>
+    <%= f.label :admin, for: "user_admin" %><br />
+  </div>
 
   <div class="actions">
     <%= f.submit %>

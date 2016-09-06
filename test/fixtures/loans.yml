@@ -2,14 +2,13 @@
 #
 # Table name: loans
 #
-#  id          :integer          not null, primary key
-#  description :text
-#  signature   :text
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  device_id   :integer
-#  user_id     :integer
-#  active      :boolean          default(FALSE)
+#  id         :integer          not null, primary key
+#  signature  :text
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  device_id  :integer
+#  user_id    :integer
+#  active     :boolean          default(FALSE)
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

@@ -22,8 +22,8 @@
   </div>
 
   <div class="field">
-    <%= f.label :Admin %><br />
-    <%= f.check_box(:user, :update_to_admin, {}) %>
+    <%= f.check_box (:admin) %>
+    <%= f.label :Admin, for: "user_admin" %><br />
   </div>
 
   <div class="actions">

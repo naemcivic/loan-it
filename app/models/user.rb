@@ -16,6 +16,7 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  group_id               :integer
+#  admin                  :boolean          default(FALSE)
 #
 
 class User < ActiveRecord::Base
@@ -34,6 +35,10 @@ class User < ActiveRecord::Base
 
 	def device_names
     devices.collect(&:name)
+  end
+
+  def password_required?
+    self.admin
   end
 
 end
