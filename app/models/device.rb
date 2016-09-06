@@ -23,8 +23,8 @@ class Device < ApplicationRecord
 
 	has_many :users, through: :loans
 
-	def loan_email
-		active_loan.email
+	def loan_name
+		active_loan.name
 	end
 
 	def device_group

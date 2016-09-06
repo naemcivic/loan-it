@@ -4,6 +4,9 @@
 	<h3> <%= email %> </h3>
 
 	<% users.each do |user| %>
+
+   	<h5> <%= user.name %> </h5>
+	  <%= link_to "Edit", edit_user_path(user) %>
 		<table>
 			<thead>
 				<tr>

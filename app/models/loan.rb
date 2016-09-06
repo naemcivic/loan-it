@@ -26,7 +26,7 @@ class Loan < ApplicationRecord
     self.active = true
   end
 
-  def email
-    try(:user).try(:email) || "No Email"
+  def name
+    try(:user).try(:name) || "No Email"
   end
 end
