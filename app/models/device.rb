@@ -4,7 +4,6 @@
 #
 #  id         :integer          not null, primary key
 #  name       :string
-#  id_number  :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  user_id    :integer
@@ -27,6 +26,7 @@ class Device < ApplicationRecord
 
 	has_many :users, through: :loans
 
+  #scopes are ways to shorten commonly used queries.
 	scope :broken, ->{joins(:incident_reports).where(incident_reports: {useable: false})}
 
 	def loan_name

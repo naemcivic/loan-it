@@ -21,7 +21,7 @@
           <td><%= device.name %></td>
           <% if device.active_loan.present? %>
             <td><%= device.loan_name  %></td>
-          <% elsif !device.is_useable?  %>
+          <% elsif device.active_incident_report.present?  %>
             <td>Device Unavailable</td>
           <% else %>
             <td><%= link_to 'Loan-IT', new_device_loan_path(device) %></td>
