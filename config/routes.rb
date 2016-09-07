@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   resources :devices do
     resources :loans
+    resources :incident_reports
   end
 
 

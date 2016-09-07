@@ -1,4 +1,4 @@
-<%= form_for(incident_report) do |f| %>
+<%= form_for([@device, @incident_report]) do |f| %>
   <% if incident_report.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(incident_report.errors.count, "error") %> prohibited this incident_report from being saved:</h2>
@@ -16,8 +16,11 @@
     <%= f.text_area :description %>
   </div>
 
+
+  <%= f.hidden_field :user_id, value: current_user.id %>
+
   <div class="field">
-    <%= f.check_box :useable %>
+    <%= f.check_box :useable, checked: true %>
     <%= f.label :useable, for: "incident_report_useable" %>
   </div>
 

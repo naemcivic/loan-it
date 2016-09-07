@@ -20,13 +20,20 @@
         <tr/>
           <td><%= device.name %></td>
           <% if device.active_loan.present? %>
-          <td><%= device.loan_name  %></td>
+            <td><%= device.loan_name  %></td>
+          <% elsif !device.is_useable?  %>
+            <td>Device Unavailable</td>
           <% else %>
-          <td><%= link_to 'Loan-IT', new_device_loan_path(device) %></td>
+            <td><%= link_to 'Loan-IT', new_device_loan_path(device) %></td>
           <% end %>
           <td><%= %></td>
           <td><%= link_to 'Show loan history', device_loans_path(device) %></td>
           <td><%= link_to 'Edit Device', edit_device_path(device) %></td>
+          <% if device.active_incident_report.present? %>
+            <td><%= link_to "Broken - View Report", device_incident_reports_url(device) %></td>
+          <% else %>
+            <td><%= link_to 'Create Incident Report', new_device_incident_report_path(device) %></td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>
