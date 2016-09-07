@@ -1,8 +1,13 @@
 FactoryGirl.define do
+
   factory :incident_report do
     description "MyText"
-    useable false
+    useable true
+
+    association :user, factory: :user
+		association :device, factory: :device
   end
+
 	factory :loan do
 		active true
 		signature "text"
@@ -19,7 +24,6 @@ FactoryGirl.define do
 
 	factory :device do
 		name "iPad"
-		id_number "3"
 	end
 
   factory :group do
