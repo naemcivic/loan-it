@@ -27,6 +27,8 @@ class Device < ApplicationRecord
 
 	has_many :users, through: :loans
 
+	scope :broken, ->{joins(:incident_reports).where(incident_reports: {useable: false})}
+
 	def loan_name
 		active_loan.name
 	end
@@ -38,5 +40,6 @@ class Device < ApplicationRecord
 	def is_useable?
 		true if (self.incident_reports.count != 0) && self.incident_reports.last[:useable]
 	end
+
 
 end
