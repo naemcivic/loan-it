@@ -23,20 +23,6 @@
     <%= f.collection_select(:group_id, Group.all, :id, :name, {}, class: "browser-default") %>
   </div>
 
-  <% if device.active_loan.blank? %>
-    <div class="field">
-      <%= f.label :User %>
-      <%= f.collection_select(:user_ids, User.all, :id, :email, {prompt: 'Select Loanee'}, class: "browser-default") %>
-    </div>
-
-    <div class="field">
-      <%= f.label :user %>
-      <%= f.collection_select(:user_ids, User.all, :id, :email, {prompt: 'Select Loanee'}, class: "browser-default") %>
-    </div>
-
-  <% end %>
-
-
   <div class="actions">
     <%= f.submit %>
   </div>
