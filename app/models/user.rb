@@ -24,7 +24,11 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_many :loans, ->() { where(active: true).order(created_at: :desc) }
-	has_many :devices, through: :loans
+
+  has_many :incident_reports
+
+  has_many :devices, through: :loans
+
   has_many :groups
 
   devise :database_authenticatable, :registerable,

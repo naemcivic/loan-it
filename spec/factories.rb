@@ -1,4 +1,8 @@
 FactoryGirl.define do
+  factory :incident_report do
+    description "MyText"
+    useable false
+  end
 	factory :loan do
 		active true
 		signature "text"

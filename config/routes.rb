@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :incident_reports
   resources :groups
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
