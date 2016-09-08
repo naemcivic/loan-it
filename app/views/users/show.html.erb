@@ -4,6 +4,12 @@
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
+<% unless @user.image.blank? %>
+	<p>
+	  <strong>Image:</strong>
+	  <%= image_tag @user.image.url %>
+	</p>
+<% end %>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

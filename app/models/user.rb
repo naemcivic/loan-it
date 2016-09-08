@@ -23,6 +23,8 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  mount_uploader :image, ImageUploader
+
   has_many :loans, ->() { where(active: true).order(created_at: :desc) }
 
   has_many :incident_reports
