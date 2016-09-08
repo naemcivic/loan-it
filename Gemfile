@@ -8,6 +8,8 @@ gem 'rails_admin', '>= 1.0.0.rc'
 
 gem 'rqrcode'
 
+gem 'carrierwave', '>= 1.0.0.beta', '< 2.0'
+
 gem 'materialize-sass'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '>= 5.0.0.rc2', '< 5.1'
