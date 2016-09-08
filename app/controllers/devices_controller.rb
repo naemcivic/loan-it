@@ -1,3 +1,4 @@
+require 'rqrcode'
 class DevicesController < ApplicationController
   before_action :set_device, only: [:show, :edit, :update, :destroy]
 
@@ -10,6 +11,7 @@ class DevicesController < ApplicationController
   # GET /devices/1
   # GET /devices/1.json
   def show
+    @qr = RQRCode::QRCode.new( '#{@device.id}', :size => 4, :level => :h )
   end
 
   # GET /devices/new

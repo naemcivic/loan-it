@@ -1,7 +1,4 @@
 FactoryGirl.define do
-  factory :qr_code do
-    
-  end
 
   factory :incident_report do
     description "MyText"

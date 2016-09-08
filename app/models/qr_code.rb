@@ -1,2 +1,0 @@
-class QrCode < ApplicationRecord
-end
