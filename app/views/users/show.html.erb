@@ -7,7 +7,7 @@
 <% unless @user.image.blank? %>
 	<p>
 	  <strong>Image:</strong>
-	  <%= image_tag @user.image.url %>
+	  <%= image_tag @user.image.thumb.url %>
 	</p>
 <% end %>
 
