@@ -34,6 +34,11 @@
           <% else %>
             <td><%= link_to 'Create Incident Report', new_device_incident_report_path(device) %></td>
           <% end %>
+          <% if device.active_loan.present? %>
+            <td><%= link_to 'Relinquish Device', device_loan_path(device, device.active_loan), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% else %>
+            <td></td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>
