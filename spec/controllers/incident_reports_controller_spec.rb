@@ -28,23 +28,23 @@ RSpec.describe IncidentReportsController, type: :controller do
 
         allow(Device).to receive(:find).with(device.id.to_s) { device }
 
-        allow_any_instance_of(Loan).to receive(:save) { true }
+        allow_any_instance_of(IncidentReport).to receive(:save) { true }
 
-        post :create, params: { loan: attributes_for(:loan), device_id: device.id }
+        post :create, params: { incident_report: attributes_for(:incident_report), device_id: device.id }
       end
 
-      it { should redirect_to(device_loans_url)}
+      it { should redirect_to(device_incident_reports_url)}
     end
 
     context 'when loan is invalid' do
-      before do
+       before do
         device = build_stubbed(:device)
 
         allow(Device).to receive(:find).with(device.id.to_s) { device }
 
-        allow_any_instance_of(Loan).to receive(:save) { false }
+        allow_any_instance_of(IncidentReport).to receive(:save) { false }
 
-        post :create, params: { loan: attributes_for(:loan), device_id: device.id }
+        post :create, params: { incident_report: attributes_for(:incident_report), device_id: device.id }
       end
 
       it { should render_template(:new) }
