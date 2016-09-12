@@ -28,6 +28,13 @@ class LoansController < ApplicationController
     #@loan = Loan.new(loan_params)
     @loan = @device.loans.build(loan_params)
 
+    # instructions = JSON.parse(params[:output]).map { |h| "line #{h['mx'].to_i},#{h['my'].to_i} #{h['lx'].to_i},#{h['ly'].to_i}" } * ' '
+    # tempfile = Tempfile.new(["signature", '.png'])
+    # Open3.popen3("convert -size 600x100 xc:transparent -stroke blue -draw @- #{tempfile.path}") do |input, output, error|
+    #   input.puts instructions
+    # end
+    # @yourmodel.signature = tempfile
+
     respond_to do |format|
       if @loan.save
         format.html { redirect_to device_loans_url, notice: 'Loan was successfully created.' }

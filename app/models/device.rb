@@ -24,6 +24,8 @@ class Device < ApplicationRecord
 
 	has_one :active_incident_report, ->() { where(useable: false) }, class_name: IncidentReport
 
+	#validates :active_incident_reports, :length => { :maximum => 1 }
+
 	has_many :users, through: :loans
 
   #scopes are ways to shorten commonly used queries.
