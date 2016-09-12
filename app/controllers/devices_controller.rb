@@ -5,7 +5,11 @@ class DevicesController < ApplicationController
   # GET /devices
   # GET /devices.json
   def index
-    @devices = Device.all
+    @devices = Device.not_broken
+  end
+
+  def brokendevices
+    @devices = Device.broken
   end
 
   # GET /devices/1

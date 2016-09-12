@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'devices#index'
-
+  get '/brokendevices' => 'devices#brokendevices'
   resources :devices do
     resources :loans
     resources :incident_reports

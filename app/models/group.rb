@@ -13,6 +13,6 @@ class Group < ApplicationRecord
 	has_many :users
 
 	def name_of_group
-		"#{group.name}"
+		try(:group).try(:name)
 	end
 end
