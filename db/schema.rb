@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160908172345) do
+ActiveRecord::Schema.define(version: 20160912160225) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 20160908172345) do
   end
 
   create_table "loans", force: :cascade do |t|
-    t.text     "signature"
+    t.string   "signature"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.integer  "device_id"

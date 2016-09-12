@@ -18,6 +18,7 @@
 #  group_id               :integer
 #  admin                  :boolean          default(FALSE)
 #  name                   :string
+#  image                  :string
 #
 
 require 'test_helper'

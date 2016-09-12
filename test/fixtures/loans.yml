@@ -3,7 +3,7 @@
 # Table name: loans
 #
 #  id         :integer          not null, primary key
-#  signature  :text
+#  signature  :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  device_id  :integer

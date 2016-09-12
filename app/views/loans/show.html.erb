@@ -2,7 +2,7 @@
 
 <p>
   <strong>Signature:</strong>
-  <%= @loan.signature %>
+  <%= image_tag @loan.signature.thumb.url %>
 </p>
 
 <%= link_to 'Edit', edit_loan_path(@loan) %> |
