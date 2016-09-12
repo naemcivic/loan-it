@@ -12,10 +12,14 @@
   <% end %>
 
 
-  <div class="field">
-    <%= f.label :user %>
+
+  <h5>
+    <div class="field">
+
     <%= f.collection_select(:user_id, User.all, :id, :name, {prompt: 'Select Loanee'}, class: "browser-default") %>
   </div>
+  </h5>
+
 
 
   <%= f.input_field :signature, as: :hidden, class: 'signature_pad_input' %>

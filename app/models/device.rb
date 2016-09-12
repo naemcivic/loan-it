@@ -24,9 +24,9 @@ class Device < ApplicationRecord
 
 	has_one :active_incident_report, ->() { where(useable: false) }, class_name: IncidentReport
 
-	#validates :active_incident_reports, :length => { :maximum => 1 }
+  has_many :users, through: :loans
 
-	has_many :users, through: :loans
+	#after_create :one_active_incident_report
 
   #scopes are ways to shorten commonly used queries.
 	scope :broken, ->{joins(:incident_reports).where(incident_reports: {useable: false})}
@@ -42,6 +42,12 @@ class Device < ApplicationRecord
 	def is_useable?
 		true if (self.incident_reports.count != 0) && self.incident_reports.last[:useable]
 	end
+
+	# def one_active_incident_report
+	# 	if self.active_incident_reports(:reload).count >= 1
+ #      errors.add(:base, "Exceeded thing limit")
+ #    end
+ #  end
 
 
 end

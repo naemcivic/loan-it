@@ -1,11 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Loans</h1>
-<h2><%= @device.name %></h2>
+<h1 align="center">Loans</h1>
+<h6 align="right"><%= link_to 'QR Code', device_url(@device) %></h6>
+<h2 align="center", class="card-panel  light-blue lighten-3"><%= @device.name %></h2>
 
-<%= link_to 'QR Code', device_url(@device) %>
 
-<table>
+
+<table class="highlight centered bordered card-panel  light-blue lighten-5">
   <thead>
     <tr>
       <th>Signature</th>
