@@ -33,7 +33,7 @@ class DevicesController < ApplicationController
     @device = Device.new(device_params)
     respond_to do |format|
       if @device.save
-        format.html { redirect_to @device, notice: 'Device was successfully created.' }
+        format.html { redirect_to devices_path, notice: 'Device was successfully created.' }
         format.json { render :show, status: :created, location: @device }
       else
         format.html { render :new }

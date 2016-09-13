@@ -9,16 +9,12 @@
 
   <style>
     body {
-      background-color: PaleTurquoise;
+      background-color: Black;
     }
   </style>
 
 </head>
 <body>
-
-<div class="blue_backgroud">
-
-</div>
 
 <% if alert %>
   <p class="alert alert-danger"><%= alert %></p>
@@ -40,14 +36,15 @@
 
     <div class="nav-wrapper"> <a href="#" class="brand-logo center">Loan-IT</a> <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="left hide-on-med-and-down">
+          <% if user_signed_in? %>
+          <li><a a class="dropdown-button" data-beloworigin="true" data-hover="true" data-constrainwidth="false" href="#!" data-activates="dropdown2">User Menu</a></li>
 
-        <li><a a class="dropdown-button" data-beloworigin="true" data-hover="true" data-constrainwidth="false" href="#!" data-activates="dropdown2">User Menu</a></li>
+          <li><a href="#"><%= link_to("Home", devices_path) %></a></li>
 
-        <li><a href="#"><%= link_to("Home", devices_path) %></a></li>
-
-        <li><a class="dropdown-button" data-beloworigin="true" data-hover="true" data-constrainwidth="false" href="#!" data-activates="dropdown1">Create New</a></li>
-        <li><a href="#"><%= link_to 'All Users', users_path %> </a></li>
-        <li><a href="#"><%= link_to 'Broken Devices', brokendevices_path %></a></li>
+          <li><a class="dropdown-button" data-beloworigin="true" data-hover="true" data-constrainwidth="false" href="#!" data-activates="dropdown1">Create New</a></li>
+          <li><a href="#"><%= link_to 'All Users', users_path %> </a></li>
+          <li><a href="#"><%= link_to 'Broken Devices', brokendevices_path %></a></li>
+        <% end %>
       </ul>
 
       <ul id="slide-out" class="side-nav">

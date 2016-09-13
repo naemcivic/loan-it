@@ -12,20 +12,20 @@
   <% end %>
 
 
-  <p><%= f.label :name %><br />
-  <%= f.text_field :name %></p>
+  <div align="center"><%= f.label :name %><br />
+  <%= f.text_field :name, :style => "text-align: center"  %></div>
 
-  <p><%= f.label :email %><br />
-  <%= f.email_field :email %></p>
+  <div align="center"><%= f.label :email %><br />
+  <%= f.email_field :email, :style => "text-align: center"  %></div>
 
 
-  <p><%= f.label :password, "New password" %><br />
-  <%= f.password_field :password %></p>
+  <div align="center"><%= f.label :password, "New password" %><br />
+  <%= f.password_field :password, :style => "text-align: center"  %></div>
 
-  <p><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></p>
+  <div align="center"><%= f.label :password_confirmation %><br />
+  <%= f.password_field :password_confirmation, :style => "text-align: center"  %></div>
 
-  <div class="field">
+  <div align="center" class="field">
     <%= f.label :image %><br>
     <%= f.file_field :image %>
     <% if f.object.image? %>
@@ -35,12 +35,12 @@
     <% end %>
   </div>
 
-  <div class="field">
+  <div align="center" class="field">
     <%= f.check_box (:admin) %>
     <%= f.label :admin, for: "user_admin" %><br />
   </div>
 
-  <div class="actions">
+  <div align="center" class="actions">
     <%= f.submit %>
   </div>
 <% end %>
