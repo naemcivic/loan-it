@@ -75,7 +75,7 @@ RSpec.describe IncidentReportsController, type: :controller do
 
       allow(IncidentReport).to receive(:find).with(incident_report.id.to_s) {incident_report}
 
-      allow(incident_report).to receive(:update).with({useable: true}) { }
+      allow(incident_report).to receive(:update).with({usable: true}) { }
 
       delete :destroy, params: { device_id: device.id, id: incident_report.id }
 

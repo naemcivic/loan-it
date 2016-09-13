@@ -4,7 +4,7 @@
 #
 #  id          :integer          not null, primary key
 #  description :text
-#  useable     :boolean
+#  usable     :boolean
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  user_id     :integer
@@ -18,12 +18,12 @@ class IncidentReport < ApplicationRecord
 
   #before_create :set_active_incident_report
 
-  def self.useable
-    where(useable: true)
+  def self.usable
+    where(usable: true)
   end
 
   def set_active_incident_report
-    self.useable = true
+    self.usable = true
   end
 
   def name

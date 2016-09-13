@@ -2,7 +2,7 @@ FactoryGirl.define do
 
   factory :incident_report do
     description "MyText"
-    useable true
+    usable true
 
     association :user, factory: :user
 		association :device, factory: :device

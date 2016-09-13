@@ -14,18 +14,80 @@
 <% if alert %>
   <p class="alert alert-danger"><%= alert %></p>
 <% end %>
+<div class="navbar-fixed">
+  <nav>
+    <ul id="dropdown1" class="dropdown-content">
+      <li><a href="#!"><%= link_to 'Create New Group', new_group_path %></a></li>
+      <li><a href="#!"><%= link_to 'Create New Device', new_device_path %></a></li>
+      <li><a href="#!"><%= link_to "New User", new_user_path %></a></li>
+    </ul>
+
+    <ul id="dropdown2" class="dropdown-content">
+      <% if user_signed_in? %>
+        <li><%= link_to("User: #{current_user.name}", user_path(current_user))%></li>
+        <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
+      <% end %>
+    </ul>
+
+    <div class="nav-wrapper"> <a href="#" class="brand-logo center">Loan-IT</a> <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="left hide-on-med-and-down">
+
+        <li><a a class="dropdown-button" data-beloworigin="true" data-hover="true" data-constrainwidth="false" href="#!" data-activates="dropdown2">User Menu</a></li>
+
+        <li class="active"><a href="#"><%= link_to("Home", devices_path) %></a></li>
+
+        <li><a class="dropdown-button" data-beloworigin="true" data-hover="true" data-constrainwidth="false" href="#!" data-activates="dropdown1">Create New</a></li>
+        <li><a href="#"><%= link_to 'All Users', users_path %> </a></li>
+        <li><a href="#"><%= link_to 'Broken Devices', brokendevices_path %></a></li>
+      </ul>
+
+      <ul id="mobile-demo" class="side-nav">
+        <li class="no-padding">
+          <ul class="collapsible collapsible-accordion">
+            <li class="bold"><a class="collapsible-header  waves-effect waves-teal">Dropdown 1</a>
+              <div class="collapsible-body">
+                <ul>
+                  <li><a href="#">Link1</a></li>
+                  <li><a href="#">link2</a></li>
+                  <li><a href="#">link3</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="bold"><a class="collapsible-header  waves-effect waves-teal">Dropdown 2</a>
+              <div class="collapsible-body">
+                <ul>
+                  <li><a href="#">link1</a></li>
+                  <li><a href="#">link2</a></li>
+                  <li><a href="#">link3</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="bold"><a class="collapsible-header  waves-effect waves-teal">Dropdown 3</a>
+              <div class="collapsible-body">
+                <ul>
+                  <li><a href="#">link1</a></li>
+                  <li><a href="#">link2</a></li>
+                  <li><a href="#">link3</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="bold"><a href="getting-started.html" class="waves-effect waves-teal">Normal link 1</a></li>
+            <li class="bold"><a href="getting-started.html" class="waves-effect waves-teal">Normal link 2</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+<script>
+ $(".button-collapse").sideNav();
+</script>
 
 <p class="navbar-text pull-right">
-<% if user_signed_in? %>
-  User: <strong><%= current_user.name %></strong>.
-  <div>
-    <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-  </div>
 
-<% else %>
-  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-<% end %>
 
 <%= yield %>
 

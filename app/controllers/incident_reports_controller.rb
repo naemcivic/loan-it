@@ -58,9 +58,9 @@ class IncidentReportsController < ApplicationController
   # DELETE /incident_reports/1
   # DELETE /incident_reports/1.json
   def destroy
-    @incident_report.update(useable: true)
+    @incident_report.update(usable: true)
     respond_to do |format|
-      format.html { redirect_to device_incident_reports_url, notice: 'Device is now useable' }
+      format.html { redirect_to device_incident_reports_url, notice: 'Device is now usable' }
       format.json { head :no_content  }
     end
   end
@@ -73,7 +73,7 @@ class IncidentReportsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def incident_report_params
-      params.require(:incident_report).permit(:description, :useable, :device_id, :user_id)
+      params.require(:incident_report).permit(:description, :usable, :device_id, :user_id)
     end
 
     def set_device

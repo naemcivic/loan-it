@@ -7,7 +7,7 @@
     <tr>
       <th>Loanee</th>
       <th>Description</th>
-      <th>Useable</th>
+      <th>usable</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,8 +17,8 @@
       <tr>
         <td><%= incident_report.name %></td>
         <td><%= incident_report.description %></td>
-        <td><%= incident_report.useable %></td>
-        <% if incident_report.useable == false %>
+        <td><%= incident_report.usable %></td>
+        <% if incident_report.usable == false %>
         <td><%= link_to 'Device fixed/replaced?', [@device, incident_report], method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% else %>
         <td></td>

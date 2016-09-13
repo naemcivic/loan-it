@@ -22,15 +22,15 @@ class Device < ApplicationRecord
 
 	has_one :active_loan, ->() { where(active: true) }, class_name: Loan
 
-	has_one :active_incident_report, ->() { where(useable: false) }, class_name: IncidentReport
+	has_one :active_incident_report, ->() { where(usable: false) }, class_name: IncidentReport
 
   has_many :users, through: :loans
 
 	#after_create :one_active_incident_report
 
   #scopes are ways to shorten commonly used queries.
-	scope :broken, ->{joins(:incident_reports).where(incident_reports: {useable: false})}
-	scope :not_broken, ->{joins(:incident_reports).where.not(incident_reports: {useable: false}).uniq}
+	scope :broken, ->{joins(:incident_reports).where(incident_reports: {usable: false})}
+	scope :not_broken, ->{joins(:incident_reports).where.not(incident_reports: {usable: false}).uniq}
 
 	def loan_name
 		active_loan.name
@@ -40,8 +40,8 @@ class Device < ApplicationRecord
 		try(:group).try(:name) || "No Group"
 	end
 
-	def is_useable?
-		true if (self.incident_reports.count != 0) && self.incident_reports.last[:useable]
+	def is_usable?
+		true if (self.incident_reports.count != 0) && self.incident_reports.last[:usable]
 	end
 
 	# def one_active_incident_report

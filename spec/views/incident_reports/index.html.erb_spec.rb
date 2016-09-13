@@ -5,11 +5,11 @@ RSpec.describe "incident_reports/index", type: :view do
     assign(:incident_reports, [
       IncidentReport.create!(
         :description => "MyText",
-        :useable => false
+        :usable => false
       ),
       IncidentReport.create!(
         :description => "MyText",
-        :useable => false
+        :usable => false
       )
     ])
   end

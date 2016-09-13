@@ -4,7 +4,7 @@ RSpec.describe "incident_reports/edit", type: :view do
   before(:each) do
     @incident_report = assign(:incident_report, IncidentReport.create!(
       :description => "MyText",
-      :useable => false
+      :usable => false
     ))
   end
 
@@ -15,7 +15,7 @@ RSpec.describe "incident_reports/edit", type: :view do
 
       assert_select "textarea#incident_report_description[name=?]", "incident_report[description]"
 
-      assert_select "input#incident_report_useable[name=?]", "incident_report[useable]"
+      assert_select "input#incident_report_usable[name=?]", "incident_report[usable]"
     end
   end
 end
