@@ -2,3 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.form field {
+    display: block;
+    margin-bottom: 1em;
+}
+
+.form label {
+    float: left;
+    margin-right: 0.5em;
+}

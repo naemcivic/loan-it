@@ -10,20 +10,21 @@
       </ul>
     </div>
   <% end %>
+  <div class="container spacer10">
+    <div align="center" class="field">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
 
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
+    <%= f.hidden_field :device_id, value: device.id %>
 
-  <%= f.hidden_field :device_id, value: device.id %>
+    <div align="center" class="field spacer10">
+      <%= f.label :Group %>
+      <%= f.collection_select(:group_id, Group.all, :id, :name, {}, class: "browser-default") %>
+    </div>
 
-  <div class="field">
-    <%= f.label :Group %>
-    <%= f.collection_select(:group_id, Group.all, :id, :name, {}, class: "browser-default") %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
+    <div align="center" class="actions spacer10">
+      <%= f.submit %>
+    </div>
   </div>
 <% end %>

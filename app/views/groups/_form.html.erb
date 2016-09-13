@@ -11,14 +11,14 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div align="center", text-align="center", class="field">
     <%= f.label :name %>
-    <%= f.text_area :name %>
+    <%= f.text_field :name %>
   </div>
 
   <%= f.hidden_field :group_id, value: group.id %>
 
-  <div class="actions">
+  <div align="center" class="actions">
     <%= f.submit %>
   </div>
 <% end %>

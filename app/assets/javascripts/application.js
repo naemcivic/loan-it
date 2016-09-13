@@ -18,3 +18,7 @@
 //= require materialize/extras/nouislider
 //= require signature_pad
 //= require signature
+
+.spacer10 { height: 10px; width: 100%; font-size: 0; margin: 0; padding: 0; border: 0; display: block; }
+
+.spacer100 { height: 100px; width: 100%; font-size: 0; margin: 0; padding: 0; border: 0; display: block; }

@@ -14,6 +14,8 @@
 
 class Device < ApplicationRecord
 
+	validates_presence_of :name, :group_id
+
 	belongs_to :group
 
 	has_many :incident_reports, ->() { order(created_at: :asc)}
@@ -30,7 +32,8 @@ class Device < ApplicationRecord
 
   #scopes are ways to shorten commonly used queries.
 	scope :broken, ->{joins(:incident_reports).where(incident_reports: {usable: false})}
-	scope :not_broken, ->{joins(:incident_reports).where.not(incident_reports: {usable: false}).uniq}
+	#scope :not_broken, ->{joins(:incident_reports).where.not(incident_reports: {usable: false}).uniq}
+	scope :not_broken, ->{all.map { |device| device if device.incident_reports.empty? || device.incident_reports.last[:usable] }.compact}
 
 	def loan_name
 		active_loan.name
@@ -40,9 +43,9 @@ class Device < ApplicationRecord
 		try(:group).try(:name) || "No Group"
 	end
 
-	def is_usable?
-		true if (self.incident_reports.count != 0) && self.incident_reports.last[:usable]
-	end
+	# def is_usable?
+	# 	true if (self.incident_reports.count != 0) && self.incident_reports.last[:usable]
+	# end
 
 	# def one_active_incident_report
 	# 	if self.active_incident_reports(:reload).count >= 1

@@ -1,25 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
+
   <title>LoanIT</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+  <style>
+    body {
+      background-color: PaleTurquoise;
+    }
+  </style>
+
 </head>
 <body>
 
-<% if notice %>
-  <p class="alert alert-success"><%= notice %></p>
-<% end %>
+<div class="blue_backgroud">
+
+</div>
+
 <% if alert %>
   <p class="alert alert-danger"><%= alert %></p>
 <% end %>
 <div class="navbar-fixed">
   <nav>
     <ul id="dropdown1" class="dropdown-content">
-      <li><a href="#!"><%= link_to 'Create New Group', new_group_path %></a></li>
-      <li><a href="#!"><%= link_to 'Create New Device', new_device_path %></a></li>
-      <li><a href="#!"><%= link_to "New User", new_user_path %></a></li>
+      <li><a><%= link_to 'Create New Group', new_group_path %></a></li>
+      <li><a><%= link_to 'Create New Device', new_device_path %></a></li>
+      <li><a><%= link_to "New User", new_user_path %></a></li>
     </ul>
 
     <ul id="dropdown2" class="dropdown-content">
@@ -34,14 +43,14 @@
 
         <li><a a class="dropdown-button" data-beloworigin="true" data-hover="true" data-constrainwidth="false" href="#!" data-activates="dropdown2">User Menu</a></li>
 
-        <li class="active"><a href="#"><%= link_to("Home", devices_path) %></a></li>
+        <li><a href="#"><%= link_to("Home", devices_path) %></a></li>
 
         <li><a class="dropdown-button" data-beloworigin="true" data-hover="true" data-constrainwidth="false" href="#!" data-activates="dropdown1">Create New</a></li>
         <li><a href="#"><%= link_to 'All Users', users_path %> </a></li>
         <li><a href="#"><%= link_to 'Broken Devices', brokendevices_path %></a></li>
       </ul>
 
-      <ul id="mobile-demo" class="side-nav">
+      <ul id="slide-out" class="side-nav">
         <li class="no-padding">
           <ul class="collapsible collapsible-accordion">
             <li class="bold"><a class="collapsible-header  waves-effect waves-teal">Dropdown 1</a>
@@ -82,8 +91,9 @@
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <!-- Compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+
 <script>
- $(".button-collapse").sideNav();
+  $('.button-collapse').sideNav();
 </script>
 
 <p class="navbar-text pull-right">
