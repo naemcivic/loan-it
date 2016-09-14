@@ -6,10 +6,11 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <style>
     body {
-      background-color: Black;
+      background-color: PaleTurquoise;
     }
   </style>
 
@@ -19,84 +20,42 @@
 <% if alert %>
   <p class="alert alert-danger"><%= alert %></p>
 <% end %>
-<div class="navbar-fixed">
-  <nav>
-    <ul id="dropdown1" class="dropdown-content">
-      <li><a><%= link_to 'Create New Group', new_group_path %></a></li>
-      <li><a><%= link_to 'Create New Device', new_device_path %></a></li>
-      <li><a><%= link_to "New User", new_user_path %></a></li>
-    </ul>
+  <% if user_signed_in? %>
+    <ul id="slide-out" class="side-nav">
+      <li><div class="userView">
+        <img class="background" src="http://www.w3schools.com/css/trolltunga.jpg">
+        <a href="#!user"><img class="circle" src="http://image.shutterstock.com/z/stock-photo-beautiful-face-of-young-woman-with-clean-fresh-skin-close-up-isolated-on-white-beauty-portrait-149962697.jpg"></a>
+        <a><span class="white-text name"><%= current_user.name %></span></a>
+        <a><span class="white-text email"><%= current_user.email %></span></a>
+      </div></li>
 
-    <ul id="dropdown2" class="dropdown-content">
-      <% if user_signed_in? %>
-        <li><%= link_to("User: #{current_user.name}", user_path(current_user))%></li>
-        <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
-      <% end %>
-    </ul>
-
-    <div class="nav-wrapper"> <a href="#" class="brand-logo center">Loan-IT</a> <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-      <ul class="left hide-on-med-and-down">
-          <% if user_signed_in? %>
-          <li><a a class="dropdown-button" data-beloworigin="true" data-hover="true" data-constrainwidth="false" href="#!" data-activates="dropdown2">User Menu</a></li>
-
-          <li><a href="#"><%= link_to("Home", devices_path) %></a></li>
-
-          <li><a class="dropdown-button" data-beloworigin="true" data-hover="true" data-constrainwidth="false" href="#!" data-activates="dropdown1">Create New</a></li>
-          <li><a href="#"><%= link_to 'All Users', users_path %> </a></li>
-          <li><a href="#"><%= link_to 'Broken Devices', brokendevices_path %></a></li>
-        <% end %>
+      <li><a href="/devices"><i class="material-icons">home</i> Home </a></li>
+      <li><a href="/users"><i class="material-icons">supervisor_account</i>All Users</a></li>
+      <li><a href="/brokendevices"><i class="material-icons">broken_image</i>Broken Devices</a></li>
+      <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="material-icons">add</i>Create New</a></li>
+      <ul id='dropdown1' class='dropdown-content'>
+        <li><a href="/users/new">User</a></li>
+        <li><a href="/groups/new">Group</a></li>
+        <li><a href="/devices/new">Device</a></li>
       </ul>
+      <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'side-nav-link'  %></li>
+    </ul>
+    <a href="#" data-activates="slide-out" class="button-collapse"><i class="medium material-icons">menu</i></a>
+  <% end %>
 
-      <ul id="slide-out" class="side-nav">
-        <li class="no-padding">
-          <ul class="collapsible collapsible-accordion">
-            <li class="bold"><a class="collapsible-header  waves-effect waves-teal">Dropdown 1</a>
-              <div class="collapsible-body">
-                <ul>
-                  <li><a href="#">Link1</a></li>
-                  <li><a href="#">link2</a></li>
-                  <li><a href="#">link3</a></li>
-                </ul>
-              </div>
-            </li>
-            <li class="bold"><a class="collapsible-header  waves-effect waves-teal">Dropdown 2</a>
-              <div class="collapsible-body">
-                <ul>
-                  <li><a href="#">link1</a></li>
-                  <li><a href="#">link2</a></li>
-                  <li><a href="#">link3</a></li>
-                </ul>
-              </div>
-            </li>
-            <li class="bold"><a class="collapsible-header  waves-effect waves-teal">Dropdown 3</a>
-              <div class="collapsible-body">
-                <ul>
-                  <li><a href="#">link1</a></li>
-                  <li><a href="#">link2</a></li>
-                  <li><a href="#">link3</a></li>
-                </ul>
-              </div>
-            </li>
-            <li class="bold"><a href="getting-started.html" class="waves-effect waves-teal">Normal link 1</a></li>
-            <li class="bold"><a href="getting-started.html" class="waves-effect waves-teal">Normal link 2</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </nav>
-</div>
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<!-- Compiled and minified JavaScript -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
 
-<script>
-  $('.button-collapse').sideNav();
-</script>
 
-<p class="navbar-text pull-right">
 
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+
+  <script>
+    $('.button-collapse').sideNav();
+  </script>
+
+   <p class="navbar-text pull-right">
 
 <%= yield %>
-
 </body>
 </html>

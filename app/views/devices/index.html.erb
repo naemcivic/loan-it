@@ -1,12 +1,12 @@
 <h2 align="center", class="z-depth-5">
-<span class="white-text"><%= Time.now.strftime("%H:%M     -    %A    -    %d/%m/%Y") %></span>
+<span class="black-text"><%= Time.now.strftime("%H:%M     -    %A    -    %d/%m/%Y") %></span>
 </h2>
 <div class="container">
   <% @devices.group_by(&:device_group).each do |group_name, devices| %>
 
-    <h3 align="center", class="card-panel black lighten-1"><span class="white-text"> <%= group_name %></span> </h3>
+    <h3 align="center", class="card-panel light-blue lighten-2"><span class="black-text"> <%= group_name %></span> </h3>
 
-    <table class="highlight centered bordered card-panel grey lighten-2">
+    <table class="highlight centered bordered card-panel light-blue lighten-4">
       <thead>
         <tr>
         <th class=>Device Name</th>

@@ -2,9 +2,8 @@
 
 <%= render 'form', incident_report: @incident_report %>
 
-<%= link_to 'Incident Report History', device_incident_reports_path %>
-
-
-<%= link_to 'Back to Devices', devices_path %>
-
+<div align="center">
+	<%= link_to 'Incident Report History', device_incident_reports_path %> |
+	<%= link_to 'Back to Devices', devices_path %>
+</div>
 

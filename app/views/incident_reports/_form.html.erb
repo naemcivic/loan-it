@@ -11,20 +11,22 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-  </div>
+  <div align="center">
+    <div class="field">
+      <%= f.label :description %>
+      <%= f.text_field :description, :style => "text-align: center" %>
+    </div>
 
 
-  <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
 
-  <div class="field">
-    <%= f.check_box :usable, checked: true %>
-    <%= f.label :usable, for: "incident_report_usable" %>
-  </div>
+    <div class="field">
+      <%= f.check_box :usable, checked: true %>
+      <%= f.label :usable, for: "incident_report_usable" %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit %>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
   </div>
 <% end %>

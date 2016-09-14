@@ -3,8 +3,10 @@
 <h1 align="center">Loans</h1>
 <h6 align="right"><%= link_to 'QR Code', device_url(@device) %></h6>
 <h2 align="center", class="card-panel  light-blue lighten-3"><%= @device.name %></h2>
-<h5 align="center"><%= link_to 'Create Incident Report', new_device_incident_report_path(@device) %></h5>
-<h5 align="center"><%= link_to 'Incident Report History', device_incident_reports_path(@device) %></h5>
+<div class="row">
+  <div class="col s6"><h5 align="center"><%= link_to 'Create Incident Report', new_device_incident_report_path(@device) %></h5></div>
+  <div class="col s6"><h5 align="center"><%= link_to 'Incident Report History', device_incident_reports_path(@device) %></h5></div>
+</div>
 
 
 
@@ -44,7 +46,7 @@
 
 <br>
 <div align="center">
-  <%= link_to 'Back to devices', devices_path %>
+  <h5><%= link_to 'Back to devices', devices_path %></h5>
 </div>
 
 
