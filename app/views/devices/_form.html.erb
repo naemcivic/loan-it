@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-  <div class="container spacer10">
+  <div class="container">
     <div align="center" class="field">
       <%= f.label :name %>
       <%= f.text_field :name, :style => "text-align: center"  %>
@@ -18,10 +18,11 @@
 
     <%= f.hidden_field :device_id, value: device.id %>
 
-    <div align="center" class="field spacer10">
+    <div align="center" class="field">
       <%= f.label :Group %>
       <%= f.collection_select(:group_id, Group.all, :id, :name, {}, class: "browser-default") %>
     </div>
+
 
     <div align="center" class="actions spacer10">
       <%= f.submit %>
