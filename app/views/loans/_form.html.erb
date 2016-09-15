@@ -11,16 +11,11 @@
     </div>
   <% end %>
 
-
-
   <h5>
     <div class="field">
-
-    <%= f.collection_select(:user_id, User.all, :id, :name, {prompt: 'Select Loanee'}, class: "browser-default") %>
-  </div>
+      <%= f.collection_select(:user_id, User.all, :id, :name, {prompt: 'Select Loanee'}, class: "browser-default") %>
+    </div>
   </h5>
-
-
 
   <%= f.input_field :signature, as: :hidden, class: 'signature_pad_input' %>
   <div class="signature_pad text-center">
@@ -33,8 +28,4 @@
       <%= f.button :submit, 'Save', class: 'btn btn-success signature_pad_save'  %>
     </div>
   </div>
-
-  <!-- The line below returns the current users ID so it can be used to associate their email with a loan -->
-
-
 <% end %>

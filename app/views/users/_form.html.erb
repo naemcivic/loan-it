@@ -11,38 +11,56 @@
     </div>
   <% end %>
 
+  <div align="center">
+    <i class="material-icons medium">account_circle</i>
+  </div>
+  <div align="center">
+    <%= f.label :name %>
+    <%= f.text_field :name, :style => "text-align: center", :placeholder => "Please enter your full name" %>
+  </div>
 
-  <div align="center"><%= f.label :name %><br />
-  <%= f.text_field :name, :style => "text-align: center"  %></div>
 
+  <div align="center">
+    <i class="material-icons medium">email</i>
+  </div>
+  <div align="center">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, :style => "text-align: center", :placeholder => "Please enter a valid email"  %>
+  </div></br>
 
+  <div align="center">
+    <i class="material-icons medium">vpn_key</i>
+  </div>
+  <div align="center">
+    <%= f.label :password, "New password" %><br />
+    <%= f.password_field :password, :style => "text-align: center", :placeholder => "Admins require a password, regular user's do not" %>
+  </div></br>
 
-  <div align="center"><%= f.label :email %><br />
-  <%= f.email_field :email, :style => "text-align: center"  %></div>
-
-
-  <div align="center"><%= f.label :password, "New password" %><br />
-  <%= f.password_field :password, :style => "text-align: center"  %></div>
-
+  <div align="center">
+    <i class="material-icons medium">replay</i>
+  </div>
   <div align="center"><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation, :style => "text-align: center"  %></div>
+  <%= f.password_field :password_confirmation, :style => "text-align: center"%></div>
 
+  <div align="center">
+    <i class="material-icons medium">add_a_photo</i>
+  </div>
   <div align="center" class="field">
     <%= f.label :image %><br>
-    <%= f.file_field :image %>
+    <%= f.file_field :image %></br>
     <% if f.object.image? %>
       <%= image_tag f.object.image.url %>
       <%= f.check_box :remove_image %>
       <%= f.label :remove_image, for: "user_remove_image" %>
     <% end %>
-  </div>
+  </div></br>
 
   <div align="center" class="field">
     <%= f.check_box (:admin) %>
-    <%= f.label :admin, for: "user_admin" %><br />
-  </div>
+    <%= f.label :admin, for: "user_admin" %></br>
+  </div></br>
 
   <div align="center" class="actions">
-    <%= f.submit %>
-  </div>
+    <%= f.submit %></br>
+  </div></br>
 <% end %>

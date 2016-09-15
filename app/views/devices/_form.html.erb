@@ -11,21 +11,24 @@
     </div>
   <% end %>
   <div class="container">
+    <div align="center">
+      <i class="material-icons large">stay_primary_portrait</i>
+    </div>
     <div align="center" class="field">
       <%= f.label :name %>
-      <%= f.text_field :name, :style => "text-align: center"  %>
+      <%= f.text_field :name, :style => "text-align: center", :placeholder => "Please enter a valid Device name"  %>
     </div>
 
     <%= f.hidden_field :device_id, value: device.id %>
 
     <div align="center" class="field">
       <%= f.label :Group %>
-      <%= f.collection_select(:group_id, Group.all, :id, :name, {}, class: "browser-default") %>
+      <%= f.collection_select(:group_id, Group.all, :id, :name, {}, class: "browser-default") %></br>
     </div>
 
 
     <div align="center" class="actions spacer10">
-      <%= f.submit %>
+      <%= f.submit %></br>
     </div>
   </div>
 <% end %>

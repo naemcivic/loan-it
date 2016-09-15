@@ -1,11 +1,14 @@
 
 
-<p>
-  <strong>Name:</strong>
-  <%= @device.name %>
+<div align="center">
+  <h2>
+  	<strong>Name:</strong>
+ 	  <%= @device.name %>
+  </h2>
 </p>
-
-<%= raw @qr.as_html %>
+<div class="container centered">
+<%= raw @qr.as_html%> </br>
+</div>
 
 <%= link_to 'Edit', edit_device_path(@device) %> |
 <%= link_to 'Back', devices_path %>

@@ -16,8 +16,6 @@ class Device < ApplicationRecord
 
 	validates_presence_of :name, :group_id
 
-	validate :active_incident_report_limit
-
 	belongs_to :group
 
 	has_many :incident_reports, ->() { order(created_at: :asc)}
@@ -43,11 +41,6 @@ class Device < ApplicationRecord
 
 	def device_group
 		try(:group).try(:name) || "No Group"
-	end
-
-	def active_incident_report_limit
-		errors.add(:active_incident_report, "too much") if active_incident_report.size > 1
-
 	end
 
 	# def is_usable?

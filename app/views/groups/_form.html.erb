@@ -11,9 +11,12 @@
     </div>
   <% end %>
 
+  <div align="center">
+    <i class="material-icons large">group_work</i>
+  </div>
   <div align="center", text-align="center", class="field">
     <%= f.label :name %>
-    <%= f.text_field :name, :style => "text-align: center"  %>
+    <%= f.text_field :name, :style => "text-align: center",:placeholder => "Please enter a valid Group name"  %>
   </div>
 
   <%= f.hidden_field :group_id, value: group.id %>

@@ -14,7 +14,8 @@
   <div align="center">
     <div class="field">
       <%= f.label :description %>
-      <%= f.text_field :description, :style => "text-align: center" %>
+      <%= f.text_field :description, :style => "text-align: center", :placeholder => "Please describe what happened to the device" %>
+      </br>
     </div>
 
 
@@ -23,10 +24,10 @@
     <div class="field">
       <%= f.check_box :usable, checked: true %>
       <%= f.label :usable, for: "incident_report_usable" %>
-    </div>
+    </div></br>
 
     <div class="actions">
       <%= f.submit %>
     </div>
-  </div>
+  </div></br>
 <% end %>
