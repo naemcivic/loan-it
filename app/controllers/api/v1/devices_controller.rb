@@ -2,8 +2,6 @@ class Api::V1::DevicesController < ApplicationController
   respond_to :json
   skip_before_action :authenticate_user!
 
-
-
   def show
     respond_with Device.find(params[:id])
   end

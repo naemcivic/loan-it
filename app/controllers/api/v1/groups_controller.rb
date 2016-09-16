@@ -5,5 +5,4 @@ class Api::V1::GroupsController < ApplicationController
   def index
     respond_with Group.all.pluck(:id, :name)
   end
-
 end
