@@ -14,6 +14,7 @@ FactoryGirl.define do
 
 		association :user, factory: :user
 		association :device, factory: :device
+		association :group, factory: :group
 	end
 
 	factory :user do

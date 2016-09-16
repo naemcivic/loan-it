@@ -23,7 +23,7 @@ Rails.application.routes.draw do
               constraints: ApiConstraints.new(version: 1, default: true) do
       resources :groups, only: [:index]
       resources :devices, only: [:show, :create] do
-        resources :loans
+        resources :loans, only: [:create, :update, :destroy]
       end
     end
   end
