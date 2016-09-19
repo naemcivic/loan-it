@@ -28,8 +28,6 @@ class Device < ApplicationRecord
 
   has_many :users, through: :loans
 
-
-
   #scopes are ways to shorten commonly used queries.
 	scope :broken, ->{joins(:incident_reports).where(incident_reports: {usable: false})}
 	#scope :not_broken, ->{joins(:incident_reports).where.not(incident_reports: {usable: false}).uniq}
@@ -52,6 +50,4 @@ class Device < ApplicationRecord
  #      errors.add(:base, "Exceeded thing limit")
  #    end
  #  end
-
-
 end

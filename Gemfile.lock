@@ -249,6 +249,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   devise
   factory_girl_rails (~> 4.0)
+  haml
   jbuilder (~> 2.0)
   jquery-rails
   materialize-sass
@@ -274,4 +275,4 @@ RUBY VERSION
    ruby 2.3.1p112
 
 BUNDLED WITH
-   1.12.5
+   1.13.1

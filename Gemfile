@@ -11,6 +11,7 @@ gem 'rqrcode'
 gem 'carrierwave', '>= 1.0.0.beta', '< 2.0'
 gem "mini_magick"
 gem 'simple_form'
+gem 'haml'
 
 gem 'materialize-sass'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
