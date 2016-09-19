@@ -9,12 +9,10 @@ FactoryGirl.define do
   end
 
 	factory :loan do
-		active true
 		signature "text"
 
 		association :user, factory: :user
 		association :device, factory: :device
-		association :group, factory: :group
 	end
 
 	factory :user do
@@ -25,6 +23,7 @@ FactoryGirl.define do
 
 	factory :device do
 		name "iPad"
+		group_id 3
 	end
 
   factory :group do

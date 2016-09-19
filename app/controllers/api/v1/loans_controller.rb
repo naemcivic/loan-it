@@ -4,7 +4,6 @@ class Api::V1::LoansController < ApplicationController
   before_action :set_device
   before_action :set_loan, only: [:update, :destroy]
 
-
   def create
     loan = @device.loans.build(loan_params)
     if loan.save
@@ -13,8 +12,6 @@ class Api::V1::LoansController < ApplicationController
       render json: { errors: loan.errors }, status: 422
     end
   end
-
-
 
   def update
     if @loan.update(loan_params)
