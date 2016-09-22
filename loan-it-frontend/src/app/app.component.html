@@ -1,21 +1,16 @@
-<header>
+<!-- <header>
   <nav>
     <a [routerLink]="['']">Home</a>
     <a [routerLink]="['about']">About</a>
   </nav>
-</header>
+</header> -->
 <main>
-  <h1>Hello from {{all_devices}} working yeah!</h1>
-
   <!-- Images (and assets) are parsed and loaded from within the public directory -->
-  <img src="/img/angular.png">
   <ul>
-    <div *ngFor="let d of all_devices">
-      {{d.name}}
-    </div>
+    <li *ngFor="let d of all_devices">
+      {{d}}
+    </li>
   </ul>
   <router-outlet></router-outlet>
 </main>
-<footer>
-  <a [href]="url">Webpack Angular 2 Starter</a>
-</footer>
+
