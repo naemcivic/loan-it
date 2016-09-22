@@ -7,12 +7,12 @@
 <main>
   <!-- Images (and assets) are parsed and loaded from within the public directory -->
   <ul>
-    <div *ngFor="let group of all_groups">
-      {{group["name"]}}
+    <li *ngFor="let group of all_groups">
+      {{group.name}}
       <div *ngFor = "let device of group.devices">
-        <li *ngFor="let v of generateArray(device)"> {{v.name}} </li>
+        <div> {{device.name}} </div>
       </div>
-    </div>
+    </li>
   </ul>
   <router-outlet></router-outlet>
 </main>
