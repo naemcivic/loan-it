@@ -1,7 +1,6 @@
 require 'rqrcode'
 class DevicesController < ApplicationController
   before_action :set_device, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authenticate_user!
 
 
   # GET /devices

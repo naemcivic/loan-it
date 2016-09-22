@@ -31,7 +31,7 @@ class Device < ApplicationRecord
   #scopes are ways to shorten commonly used queries.
 	scope :broken, ->{joins(:incident_reports).where(incident_reports: {usable: false})}
 	#scope :not_broken, ->{joins(:incident_reports).where.not(incident_reports: {usable: false}).uniq}
-	scope :not_broken, ->{all.map { |device| device if device.incident_reports.empty? || device.incident_reports.last[:usable] }.compact}
+	scope :not_broken, ->{all.includes(:incident_reports).map { |device| device if device.incident_reports.empty? || device.incident_reports.last[:usable] }.compact}
 
 	def loan_name
 		active_loan.name
