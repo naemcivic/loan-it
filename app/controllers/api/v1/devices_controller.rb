@@ -3,7 +3,7 @@ class Api::V1::DevicesController < ApplicationController
   skip_before_action :authenticate_user!
 
   def index
-    respond_with Device.not_broken.pluck(:id, :name)
+    respond_with Device.not_broken.as_json(only: [:id, :name], include: {group: {only: :name}})
   end
 
   def show
