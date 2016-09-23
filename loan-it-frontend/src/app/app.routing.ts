@@ -4,7 +4,11 @@ import { DeviceComponent } from './devices/device.component'
 
 
 const routes: Routes = [
-  { path: '', component: DeviceComponent },
+  { path: '', redirectTo: '/devices', pathMatch: 'full' },
+  {
+  	path: 'devices',
+  	component: DeviceComponent
+  }
   // { path: 'about', component: AboutComponent}
 ];
 

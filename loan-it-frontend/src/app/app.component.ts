@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Device } from './shared/device';
-import { ApiService } from './shared';
+
 
 import '../style/app.scss';
 
@@ -9,9 +9,6 @@ import '../style/app.scss';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
 
-  constructor(private api: ApiService) {
-    // Do something with api
-  }
 }
