@@ -10,20 +10,12 @@ import '../style/app.scss';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  url = 'https://github.com/preboot/angular2-webpack';
   all_groups: Device[] = [];
-  constructor(private api: ApiService) {
-    // Do something with api
-  }
-
   ngOnInit() {
     this.api.obtainDevices()
         .subscribe((data: Device[]) => this.all_groups = data);
-
   }
-
-  generateArray(obj){
-   return Object.keys(obj).map((key)=>{ return obj[key]});
-  }
-
+  constructor(private api: ApiService) {
+    // Do something with api
+  }
 }

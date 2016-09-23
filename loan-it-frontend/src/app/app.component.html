@@ -10,7 +10,7 @@
     <li *ngFor="let group of all_groups">
       {{group.name}}
       <div *ngFor = "let device of group.devices">
-        <div> {{device.name}} </div>
+        <div> {{device.working_device_name}} </div>
       </div>
     </li>
   </ul>
