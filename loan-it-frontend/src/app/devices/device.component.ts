@@ -10,15 +10,15 @@ import { ApiService } from '../shared';
   styleUrls: ['./device.component.scss'],
 })
 export class DeviceComponent implements OnInit {
-
-  all_devices: Device[] = [];
-  constructor(private api: ApiService) {
-    // Do something with api
-  }
+  all_groups: Device[] = [];
 
   ngOnInit() {
     this.api.obtainDevices()
-        .subscribe((data: Device[]) => this.all_devices = data);
+        .subscribe((data: Device[]) => this.all_groups = data);
+  }
+
+  constructor(private api: ApiService) {
+    // Do something with api
   }
 
 }

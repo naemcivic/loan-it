@@ -10,11 +10,7 @@ import '../style/app.scss';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  all_groups: Device[] = [];
-  ngOnInit() {
-    this.api.obtainDevices()
-        .subscribe((data: Device[]) => this.all_groups = data);
-  }
+
   constructor(private api: ApiService) {
     // Do something with api
   }
