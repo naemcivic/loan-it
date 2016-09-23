@@ -1,0 +1,21 @@
+<table class="highlight centered bordered card-panel black">
+  <div *ngFor="let group of all_groups">
+    <div align="center">
+	    <thead>
+	      <tr>
+	        <th align="center">{{group.name}}</th>
+	      </tr>
+	    </thead>
+	  </div>
+
+    <div align="left" class="card-panel grey lighten-1">
+	    <tbody>
+			  <div *ngFor = "let device of group.devices">
+	        <tr>
+	          <td>{{device.working_device_name}}</td>
+	        </tr>
+			  </div>
+	    </tbody>
+	  </div>
+  </div>
+</table>

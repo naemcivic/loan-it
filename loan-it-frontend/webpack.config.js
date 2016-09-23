@@ -35,7 +35,7 @@ module.exports = function makeWebpackConfig() {
    */
   if (isProd) {
     config.devtool = 'source-map';
-  } 
+  }
   else if (isTest) {
     config.devtool = 'inline-source-map';
   }
@@ -86,7 +86,7 @@ module.exports = function makeWebpackConfig() {
   if (isTest && !isTestWatch) {
     // awesome-typescript-loader needs to output inlineSourceMap for code coverage to work with source maps.
     atlOptions = 'inlineSourceMap=true&sourceMap=false';
-  } 
+  }
 
   /**
    * Loaders
@@ -137,8 +137,11 @@ module.exports = function makeWebpackConfig() {
 
       // support for .html as raw text
       // todo: change the loader to something that adds a hash to images
-      {test: /\.html$/, loader: 'raw',  exclude: root('src', 'public')}
-    ],
+      {test: /\.html$/, loader: 'raw',  exclude: root('src', 'public')},
+
+      // test to confirm fonts load properly
+      { test: /.(png|woff(2)?|eot|ttf|svg)(\?[a-z0-9=\.]+)?$/, loader: 'url-loader?limit=100000' }
+      ],
     postLoaders: []
   };
 
@@ -165,8 +168,14 @@ module.exports = function makeWebpackConfig() {
       'process.env': {
         ENV: JSON.stringify(ENV)
       }
+    }),
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery",
+      "window.jQuery": "jquery",
+      Hammer: "hammerjs/hammer"
     })
-  ];
+    ];
 
   if (!isTest && !isProd) {
       config.plugins.push(new DashboardPlugin());
