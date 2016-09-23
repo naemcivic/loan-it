@@ -57,6 +57,6 @@ class Device < ApplicationRecord
 private
 
   def with_incident_report_and_usable?
-    (incident_reports.count != 0) && incident_reports.last[:usable]
+    (!incident_reports.count.nil?) && incident_reports.last[:usable]
   end
 end
