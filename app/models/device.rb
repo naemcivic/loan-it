@@ -31,7 +31,7 @@ class Device < ApplicationRecord
   #scopes are ways to shorten commonly used queries.
 	scope :broken, ->{joins(:incident_reports).where(incident_reports: {usable: false})}
 	#scope :not_broken, ->{joins(:incident_reports).where.not(incident_reports: {usable: false}).uniq}
-	scope :not_broken, ->{all.includes(:incident_reports).map { |device| device if device.incident_reports.empty? || device.incident_reports.last[:usable] }.compact}
+	scope :not_broken, ->{all.includes(:loans, :incident_reports).map { |device| device if device.incident_reports.empty? || device.incident_reports.last[:usable] }.compact}
 
 	def loan_name
 		active_loan.name
@@ -40,6 +40,10 @@ class Device < ApplicationRecord
 	def device_group
 		try(:group).try(:name) || "No Group"
 	end
+
+  def working_device_name
+    incident_reports.empty? || with_incident_report_and_usable? ? name : nil
+  end
 
 	# def is_usable?
 	# 	true if (self.incident_reports.count != 0) && self.incident_reports.last[:usable]
@@ -50,4 +54,9 @@ class Device < ApplicationRecord
  #      errors.add(:base, "Exceeded thing limit")
  #    end
  #  end
+private
+
+  def with_incident_report_and_usable?
+    (!incident_reports.count.nil?) && incident_reports.last[:usable]
+  end
 end
