@@ -1,27 +1,21 @@
-<ul>
-  <li *ngFor="let group of all_groups">
-    {{group.name}}
-    <div *ngFor = "let device of group.devices">
-          <div> {{device.working_device_name}} </div>
-    </div>
-  </li>
-</ul>
-
- <table>
+<table class="highlight centered bordered card-panel black">
   <div *ngFor="let group of all_groups">
-      <thead>
-        <tr>
-            <th data-field="id">{{group.name}}</th>
+    <div align="center">
+	    <thead>
+	      <tr>
+	        <th align="center">{{group.name}}</th>
+	      </tr>
+	    </thead>
+	  </div>
 
-        </tr>
-      </thead>
-
-      <tbody>
-  <div *ngFor = "let device of group.devices">
-        <tr>
-          <td>{{device.working_device_name}}</td>
-        </tr>
-  </div>
-      </tbody>
+    <div align="left" class="card-panel grey lighten-1">
+	    <tbody>
+			  <div *ngFor = "let device of group.devices">
+	        <tr>
+	          <td>{{device.working_device_name}}</td>
+	        </tr>
+			  </div>
+	    </tbody>
+	  </div>
   </div>
 </table>
