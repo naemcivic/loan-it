@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :groups
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
-  devise_for :users, :path_prefix => 'my'
+  # devise_for :users, :path_prefix => 'my'
   resources :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -27,6 +27,11 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  # Devise json override both registrations and sessions controller
+  devise_for :users, :controllers => { :registrations => "users/registrations",
+                                        :sessions => "users/sessions"
+                                      }
 
 
 

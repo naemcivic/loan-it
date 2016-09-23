@@ -24,7 +24,11 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  include Authenticable
+
   mount_uploader :image, ImageUploader
+  validates :auth_token, uniqueness: true
+  before_create :generate_authentication_token!
 
   has_many :loans, ->() { where(active: true).order(created_at: :desc) }
 
@@ -48,5 +52,4 @@ class User < ActiveRecord::Base
   def password_required?
     self.admin
   end
-
 end
