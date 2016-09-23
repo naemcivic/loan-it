@@ -1,21 +1,14 @@
-<table class="highlight centered bordered card-panel black">
-  <div *ngFor="let group of all_groups">
-    <div align="center">
-	    <thead>
-	      <tr>
-	        <th align="center">{{group.name}}</th>
-	      </tr>
-	    </thead>
-	  </div>
-
-    <div align="left" class="card-panel grey lighten-1">
-	    <tbody>
-			  <div *ngFor = "let device of group.devices">
-	        <tr>
-	          <td>{{device.working_device_name}}</td>
-	        </tr>
-			  </div>
-	    </tbody>
-	  </div>
+<div *ngFor="let group of all_groups">
+  <h3 align="center" class='card-panel black z-depth-5'>{{group.name}}</h3>
+  <div *ngFor = "let device of group.devices">
+    <div *ngIf = 'device.working_device_name'>
+		  <table class="bordered highlight responsive-table card-panel grey z-depth-5">
+			    <tbody>
+		        <tr>
+		          <td> <i class="material-icons">stay_primary_portrait</i> {{device.working_device_name}}</td>
+		        </tr>
+			    </tbody>
+			  </table>
+			</div>
   </div>
-</table>
+</div>
