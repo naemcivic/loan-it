@@ -1,0 +1,14 @@
+<div *ngFor="let group of all_groups">
+  <div *ngFor = "let device of group.devices">
+    <div *ngIf = 'device.broken_device_name'>
+      <h3 align="center" class='card-panel black z-depth-5'>{{group.name}}</h3>
+		  <table class="bordered highlight responsive-table card-panel grey z-depth-5">
+			    <tbody>
+		        <tr>
+		          <td> <i class="material-icons">stay_primary_portrait</i> {{device.broken_device_name}}</td>
+		        </tr>
+			    </tbody>
+			</table>
+	  </div>
+  </div>
+</div>
