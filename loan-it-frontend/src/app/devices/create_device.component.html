@@ -1,0 +1,19 @@
+Device Name:
+<input #newDeviceName />
+Group Id:
+<input #newDeviceGroupID />
+<button class="waves-effect waves-light btn" (click)="addDevice(newDeviceName.value, newDeviceGroupID.value); newDeviceName.value=''">
+  Add Device
+</button>
+<div class="error" *ngIf="errorMessage">{{errorMessage}}</div>
+
+<a class='dropdown-button btn' data-activates='dropdown1'>Groups</a>
+<ul cid='dropdown1' class='dropdown-content browser-default'>
+  <li *ngFor="let group of all_groups">
+    <a class="dropdown-item">{{group.name}}</a>
+  </li>
+</ul>
+
+<select class="form-control">
+    <option *ngFor="let group of all_groups">{{group.name}}</option>
+</select>

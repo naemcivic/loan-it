@@ -1,5 +1,5 @@
 import { Injectable }    from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { RequestOptions, Headers, Http, Response } from '@angular/http';
 import { Device } from './device';
 
 import 'rxjs/add/operator/map';
@@ -10,15 +10,32 @@ import { Observable } from 'rxjs/Rx';
 @Injectable()
 export class ApiService {
 
-  private GROUP_URL = 'http://localhost:3000/api/groups.json';  // URL to web api
+  private headers = new Headers({'Content-Type': 'application/json'});
 
+  private GROUP_URL = 'http://localhost:3000/api/groups';
+  private DEVICE_CREATION_URL = 'http://localhost:3000/api/devices';
 
   constructor(private http: Http) { }
+
+    private extractData(res: Response) {
+      let body = res.json();
+      return body.data || { };
+    }
 
     obtainDevices(): Observable<Device[]> {
     return this.http.get(this.GROUP_URL)
                .map((resp: Response) => resp.json())
                .catch(this.handleError);
+    }
+
+    createDevice (name: string, group_id: number): Observable<Device> {
+      let body = JSON.stringify({ name, group_id });
+      let headers = new Headers({ 'Content-Type': 'application/json' });
+      let options = new RequestOptions({ headers: headers });
+
+      return this.http.post(this.DEVICE_CREATION_URL, body, options)
+                      .map(this.extractData)
+                      .catch(this.handleError);
     }
 
     handleError(error: any) {
