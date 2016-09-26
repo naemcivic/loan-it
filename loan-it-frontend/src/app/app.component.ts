@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Device } from './shared/device';
+import { Component } from '@angular/core';
 
 
 import '../style/app.scss';

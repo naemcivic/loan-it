@@ -5,17 +5,18 @@ import { UserService } from './shared/user.service';
 
 @Component({
     selector: 'login',
-    tempplate: `...`
+    templateUrl: './login.component.html'
 })
 
 export class LoginComponent {
-    constructor(private userService: UserService, private router: Router) {}
+    model: any = {};
+    constructor(private userService: UserService, private router: Router) { }
 
-    onSumbit(email, password) {
-        this.userService.login(email, password).subscribe((result) => {
+    login(email, password) {
+        this.userService.login(this.model.email, this.model.password).subscribe((result) => {
             if (result) {
-                this.router.navigate(['']);
-            } 
+                this.router.navigate(['brokendevices']);
+            }
         });
     }
 }
