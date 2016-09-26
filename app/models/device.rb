@@ -45,6 +45,11 @@ class Device < ApplicationRecord
     incident_reports.empty? || with_incident_report_and_usable? ? name : nil
   end
 
+  def broken_device_name
+  	active_incident_report.present? ? name : nil
+  end
+
+
 	# def is_usable?
 	# 	true if (self.incident_reports.count != 0) && self.incident_reports.last[:usable]
 	# end
@@ -57,6 +62,7 @@ class Device < ApplicationRecord
 private
 
   def with_incident_report_and_usable?
-    (!incident_reports.count.nil?) && incident_reports.last[:usable]
+    (incident_reports.count > 0) && incident_reports.last[:usable]
   end
+
 end
