@@ -27,5 +27,4 @@ export class CreateDeviceComponent implements OnInit {
                      .subscribe(
                        device  => this.all_groups.push(device);
   }
-
 }
