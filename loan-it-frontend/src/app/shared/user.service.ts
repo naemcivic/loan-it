@@ -29,4 +29,14 @@ export class UserService {
                 return res.success;
             });
     }
+
+    logout() {
+        localStorage.removeItem('auth_token');
+        this.loggedIn = false;
+    }
+
+    
+    isLoggedIn() {
+        return this.loggedIn;
+    }
 }
