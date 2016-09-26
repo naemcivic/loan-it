@@ -13,10 +13,15 @@ export class LoginComponent {
     constructor(private userService: UserService, private router: Router) { }
 
     login(email, password) {
-        this.userService.login(this.model.email, this.model.password).subscribe((result) => {
+        this.userService.userLogin(this.model.email, this.model.password).subscribe((result) => {
             if (result) {
-                this.router.navigate(['brokendevices']);
+                console.log('yes')
+                this.router.navigate(['devices']);
             }
         });
     }
+
+    logOut(){
+        this.userService.logout();
+    } 
 }

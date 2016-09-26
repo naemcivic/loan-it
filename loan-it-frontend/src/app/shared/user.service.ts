@@ -9,7 +9,7 @@ export class UserService {
         this.loggedIn = !!localStorage.getItem('auth_token');
     }
 
-    login(email, password) {
+    userLogin(email, password) {
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
 
@@ -19,14 +19,14 @@ export class UserService {
                 JSON.stringify({ email, password }),
                 { headers }
             )
-            .map(res => res.json())
+            // .map(res => res.json())
             .map((res) => {
-                if (res.success) {
-                    localStorage.setItem('auth_token', res.auth_token);
+                if (res.status === 200) {
+                    localStorage.setItem('auth_token', res.json().auth_token);
                     this.loggedIn = true;
                 }
 
-                return res.success;
+                return true;
             });
     }
 
