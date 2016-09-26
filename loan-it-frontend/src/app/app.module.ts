@@ -10,6 +10,7 @@ import { DeviceComponent } from './devices/device.component';
 import { BrokenDeviceComponent } from './devices/broken_device.component';
 import { CreateDeviceComponent } from './devices/create_device.component';
 import { CreateLoanComponent } from './devices/create_loan.component';
+import { ShowDeviceComponent } from './devices/show_device.component';
 // import { AboutComponent } from './about/about.component';
 import { ApiService } from './shared';
 import { routing } from './app.routing';
@@ -27,8 +28,9 @@ import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
     AppComponent,
     DeviceComponent,
     BrokenDeviceComponent,
-    CreateDeviceComponent
-    CreateLoanComponent
+    CreateDeviceComponent,
+    CreateLoanComponent,
+    ShowDeviceComponent
     // AboutComponent
   ],
   providers: [

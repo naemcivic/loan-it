@@ -21,9 +21,9 @@ export class CreateLoanComponent implements OnInit {
     // Do something with api
   }
 
-  addLoan(signature: string, user_id: number) {
+  addLoan(device, signature: string, user_id: number) {
     if (!name) { return; }
-    this.api.createLoan(signature, user_id)
+    this.api.createLoan(device, signature, user_id)
                      .subscribe(
                        device  => this.all_groups.push(device);
   }

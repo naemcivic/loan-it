@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Device } from '../shared/device';
 import { ApiService } from '../shared';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+
 
 // import '../style/app.scss';
 
@@ -17,8 +19,12 @@ export class DeviceComponent implements OnInit {
         .subscribe((data: Device[]) => this.all_groups = data);
   }
 
-  constructor(private api: ApiService) {
+  constructor(private api: ApiService, private router: Router, private route: ActivatedRoute) {
     // Do something with api
+  }
+
+  onSelect(device: Device) {
+    this.router.navigate(['/device', device.id]);
   }
 
 }
