@@ -5,11 +5,11 @@ import { ApiService } from '../shared';
 // import '../style/app.scss';
 
 @Component({
-  selector: 'create-device', // <my-app></my-app>
-  templateUrl: './create_device.component.html',
+  selector: 'create-loan', // <my-app></my-app>
+  templateUrl: './create_loan.component.html',
   styleUrls: ['./device.component.scss'],
 })
-export class CreateDeviceComponent implements OnInit {
+export class CreateLoanComponent implements OnInit {
   all_groups: Device[] = [];
 
   ngOnInit() {
@@ -21,9 +21,9 @@ export class CreateDeviceComponent implements OnInit {
     // Do something with api
   }
 
-  addDevice(name: string, group_id: number) {
+  addLoan(signature: string, user_id: number) {
     if (!name) { return; }
-    this.api.createDevice(name, group_id)
+    this.api.createLoan(signature, user_id)
                      .subscribe(
                        device  => this.all_groups.push(device);
   }

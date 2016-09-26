@@ -14,6 +14,8 @@ export class ApiService {
 
   private GROUP_URL = 'http://localhost:3000/api/groups';
   private DEVICE_CREATION_URL = 'http://localhost:3000/api/devices';
+  private LOAN_CREATION_URL = 'localhost:3000/api/devices/55/loans';
+
 
   constructor(private http: Http) { }
 
@@ -34,6 +36,16 @@ export class ApiService {
       let options = new RequestOptions({ headers: headers });
 
       return this.http.post(this.DEVICE_CREATION_URL, body, options)
+                      .map(this.extractData)
+                      .catch(this.handleError);
+    }
+
+    createLoan (signature: string, user_id: number): Observable<Device> {
+      let body = JSON.stringify({ signature, user_id });
+      let headers = new Headers({ 'Content-Type': 'application/json' });
+      let options = new RequestOptions({ headers: headers });
+
+      return this.http.post(this.LOAN_CREATION_URL, body, options)
                       .map(this.extractData)
                       .catch(this.handleError);
     }
