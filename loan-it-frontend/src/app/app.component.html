@@ -1,12 +1,16 @@
 <header>
 	<nav>
-    <a [routerLink]="['']">Home</a>
-    <a [routerLink]="['brokendevices']">Broken Devices</a>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">Loan-it</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a [routerLink]="['brokendevices']">Broken Devices</a></li>
+        <li><a [routerLink]="['login']">login</a></li>
+      </ul>
+    </div>
   </nav>
 </header>
 <main>
   <!-- Images (and assets) are parsed and loaded from within the public directory -->
-
   <router-outlet></router-outlet>
 </main>
 

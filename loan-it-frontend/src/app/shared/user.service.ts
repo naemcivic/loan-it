@@ -23,15 +23,15 @@ export class UserService {
             .map((res) => {
                 if (res.success) {
                     localStorage.setItem('auth_token', res.auth_token);
+                    localStorage.setItem('user_name', res.user_name);
                     this.loggedIn = true;
-                    console.log(res.success)
             }
                 return res.success;
             });
     }
 
     logOut() {
-        localStorage.removeItem('auth_token');
+        localStorage.clear();
         this.loggedIn = false;
     }
 

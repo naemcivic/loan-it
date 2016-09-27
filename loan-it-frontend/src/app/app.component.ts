@@ -9,5 +9,5 @@ import '../style/app.scss';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-
+  userName = localStorage['user_name'] 
 }
