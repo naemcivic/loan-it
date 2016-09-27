@@ -14,7 +14,7 @@ export class ApiService {
 
   private GROUP_URL = 'http://localhost:3000/api/groups';
   private DEVICE_CREATION_URL = 'http://localhost:3000/api/devices';
-  // private LOAN_CREATION_URL = 'localhost:3000/api/devices/{{device.id}}/loans';
+  private USER_URL = 'http://localhost:3000/api/users'
 
 
   constructor(private http: Http) { }
@@ -26,6 +26,12 @@ export class ApiService {
 
     obtainDevices(): Observable<Device[]> {
     return this.http.get(this.GROUP_URL)
+               .map((resp: Response) => resp.json())
+               .catch(this.handleError);
+    }
+
+    obtainUsers(): Observable<User[]> {
+    return this.http.get(this.USER_URL)
                .map((resp: Response) => resp.json())
                .catch(this.handleError);
     }
@@ -46,22 +52,18 @@ export class ApiService {
                       .catch(this.handleError);
     }
 
-    // createLoan (signature: string, user_id: number): Observable<Device> {
-    //   let body = JSON.stringify({ signature, user_id });
-    //   let headers = new Headers({ 'Content-Type': 'application/json' });
-    //   let options = new RequestOptions({ headers: headers });
-
-    //   return this.http.post(this.LOAN_CREATION_URL, body, options)
-    //                   .map(this.extractData)
-    //                   .catch(this.handleError);
-    // }
-
-    createLoan(device, signature: string, user_id: number) {
+    createLoan (id: number, signature: string, user_id: number): Observable<Device> {
+      const LOAN_CREATION_URL = `localhost:3000/api/devices/${id}/loans`;
+      let body = JSON.stringify({ signature, user_id });
       let headers = new Headers({ 'Content-Type': 'application/json' });
       let options = new RequestOptions({ headers: headers });
-      let body = JSON.stringify({signature, user_id});
-      return this.http.put('/api/devices/' + device.id + '/loans', body, headers).map((res: Response) => res.json());
-  }
+
+      return this.http.post(LOAN_CREATION_URL, body, options)
+                      .map(this.extractData)
+                      .catch(this.handleError);
+    }
+
+
 
     handleError(error: any) {
         console.error(error);

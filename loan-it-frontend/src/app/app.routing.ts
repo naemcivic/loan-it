@@ -13,7 +13,8 @@ const routes: Routes = [
   { path: 'brokendevices', component: BrokenDeviceComponent },
   { path: 'createdevice', component: CreateDeviceComponent },
   { path: 'createloan', component: CreateLoanComponent },
-  { path: 'device/:id', component: ShowDeviceComponent }
+  { path: 'device/:id', component: ShowDeviceComponent },
+  { path: 'device/:id/createloan', component: CreateLoanComponent }
 ];
 
 export const routing = RouterModule.forRoot(routes);

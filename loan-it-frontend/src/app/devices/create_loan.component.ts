@@ -1,20 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import { Device } from '../shared/device';
+import { User } from '../shared/user';
 import { ApiService } from '../shared';
+
 
 // import '../style/app.scss';
 
 @Component({
-  selector: 'create-loan', // <my-app></my-app>
+  selector: 'create-loan',
   templateUrl: './create_loan.component.html',
   styleUrls: ['./device.component.scss'],
 })
 export class CreateLoanComponent implements OnInit {
   all_groups: Device[] = [];
+  all_users: User[] = [];
 
   ngOnInit() {
     this.api.obtainDevices()
         .subscribe((data: Device[]) => this.all_groups = data);
+
+    this.api.obtainUsers()
+        .subscribe((data: User[]) => this.all_users = data);
   }
 
   constructor(private api: ApiService) {

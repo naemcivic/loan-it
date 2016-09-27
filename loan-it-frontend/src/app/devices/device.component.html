@@ -1,6 +1,6 @@
 <div *ngFor="let group of all_groups">
   <h3 align="center" class='card-panel black z-depth-5'>{{group.name}}</h3>
-  <div *ngFor = "let device of group.devices" (click)="onSelect(device)">
+  <div *ngFor = "let device of group.devices">
     <div *ngIf = 'device.working_device_name'>
 		  <table class="bordered highlight card-panel grey z-depth-5">
 			    <tbody>
@@ -10,14 +10,13 @@
 			           <td> <i class="material-icons">stay_primary_portrait</i> {{device.working_device_name}}</td>
 			          </div>
 			          <div class="col s6" align="right">
-			            <td><i class="material-icons">forward</i></td>
+			            <td (click)="createLoan(device)"><a><i class="material-icons">forward</i></a></td>
 			          </div>
 			        </div>
-              <td>
-		          <td>  </td>
 		        </tr>
 			    </tbody>
 			  </table>
 			</div>
   </div>
 </div>
+
