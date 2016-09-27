@@ -10,8 +10,13 @@
 			           <td> <i class="material-icons">stay_primary_portrait</i> {{device.working_device_name}}</td>
 			          </div>
 			          <div class="col s6" align="right">
-			            <td (click)="createLoan(device)"><a><i class="material-icons">forward</i></a></td>
-			          </div>
+			         	 <div *ngIf = 'device.loanee_name'>
+				          	<td>{{device.loanee_name}}</td>
+				          </div>
+				         <div *ngIf = '!device.loanee_name'>
+				           <td (click)="createLoan(device)"><a><i class="material-icons">forward</i></a></td>
+				         </div>
+				        </div>
 			        </div>
 		        </tr>
 			    </tbody>

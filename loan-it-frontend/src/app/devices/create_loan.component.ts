@@ -41,5 +41,9 @@ export class CreateLoanComponent implements OnInit {
     this.api.createLoan(this.device_id, signature, user_id)
                      .subscribe(
                        device  => this.all_groups.push(device));
+    this.router.navigate(['/devices']);
   }
+
+
+
 }

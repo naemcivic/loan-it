@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Device } from '../shared/device';
+import { User } from '../shared/user';
 import { ApiService } from '../shared';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
