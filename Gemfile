@@ -50,7 +50,6 @@ group :development, :test do
   gem 'annotate'
   gem 'rspec-rails', '~> 3.5'
   gem "factory_girl_rails", "~> 4.0"
-  gem 'quiet_assets'
   gem 'better_errors'
 end
 

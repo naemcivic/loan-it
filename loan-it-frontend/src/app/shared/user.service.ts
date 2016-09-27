@@ -34,7 +34,7 @@ export class UserService {
     logOut() {
         localStorage.clear();
         this.loggedIn = false;
-                this.router.navigate(['login']);
+        this.router.navigate(['login']);
     }
 
 
