@@ -1,0 +1,17 @@
+<h3 align="center">Signature:</h3>
+<input #LoaneeSignature />
+
+<h3 align="center">User ID:</h3>
+<input #LoaneeName />
+
+
+<!-- <h3 align="center">Group Name:</h3>
+<select #GroupID class="browser-default">
+    <option *ngFor="let group of all_groups" [value]="group.id">{{group.name}}</option>
+</select> -->
+<button class="waves-effect waves-light btn" (click)="addLoan(LoaneeSignature.value, LoaneeName.value); LoaneeName.value=''">
+  Loan-IT
+</button>
+<div class="error" *ngIf="errorMessage">{{errorMessage}}</div>
+
+

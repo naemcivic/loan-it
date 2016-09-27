@@ -1,0 +1,15 @@
+<h2 align="center">
+	Device Name
+	<!-- Why do we need the question mark in front of device? -->
+	<!-- You have to remember that the http.get() call is async. Your template is trying to process device as an object before it has been resolved by your async http call.
+
+	That's why device is undefined and, therefore, you can't access any properties on it (it does not yet exist). -->
+	{{device?.name}}
+</h2>
+
+<h2 align="center">
+  Device ID:
+  {{device?.id}}
+</h2>
+
+

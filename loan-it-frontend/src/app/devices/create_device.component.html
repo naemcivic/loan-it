@@ -1,0 +1,12 @@
+<h3 align="center">Device Name:</h3>
+<input #DeviceName />
+<h3 align="center">Group Name:</h3>
+<select #GroupID class="browser-default">
+    <option *ngFor="let group of all_groups" [value]="group.id">{{group.name}}</option>
+</select>
+<button class="waves-effect waves-light btn" (click)="addDevice(DeviceName.value, GroupID.value); newDeviceName.value=''">
+  Add Device
+</button>
+<div class="error" *ngIf="errorMessage">{{errorMessage}}</div>
+
+

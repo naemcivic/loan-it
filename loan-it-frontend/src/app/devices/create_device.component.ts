@@ -1,17 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Device } from '../shared/device';
 import { ApiService } from '../shared';
-import { Router, ActivatedRoute, Params } from '@angular/router';
-
 
 // import '../style/app.scss';
 
 @Component({
-  selector: 'app-devices', // <my-app></my-app>
-  templateUrl: './device.component.html',
+  selector: 'create-device', // <my-app></my-app>
+  templateUrl: './create_device.component.html',
   styleUrls: ['./device.component.scss'],
 })
-export class DeviceComponent implements OnInit {
+export class CreateDeviceComponent implements OnInit {
   all_groups: Device[] = [];
 
   ngOnInit() {
@@ -19,12 +17,14 @@ export class DeviceComponent implements OnInit {
         .subscribe((data: Device[]) => this.all_groups = data);
   }
 
-  constructor(private api: ApiService, private router: Router, private route: ActivatedRoute) {
+  constructor(private api: ApiService) {
     // Do something with api
   }
 
-  onSelect(device: Device) {
-    this.router.navigate(['/device', device.id]);
+  addDevice(name: string, group_id: number) {
+    if (!name) { return; }
+    this.api.createDevice(name, group_id)
+                     .subscribe(
+                       device  => this.all_groups.push(device);
   }
-
 }
