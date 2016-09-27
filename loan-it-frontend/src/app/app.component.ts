@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
+import { UserService } from './shared/user.service';
 
 import '../style/app.scss';
 
@@ -10,4 +12,6 @@ import '../style/app.scss';
 })
 export class AppComponent {
   userName = localStorage['user_name'] 
+  
+  constructor(private userService: UserService, private router: Router) { }
 }

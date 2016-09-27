@@ -22,6 +22,5 @@ export class LoginComponent {
 
     logOut(){
         this.userService.logOut();
-        this.router.navigate(['/']);
     } 
 }

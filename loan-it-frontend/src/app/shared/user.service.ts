@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class UserService {
     private loggedIn = false;
 
-    constructor(private http: Http) {
+    constructor(private http: Http, private router: Router) {
         this.loggedIn = !!localStorage.getItem('auth_token');
     }
 
@@ -33,6 +34,7 @@ export class UserService {
     logOut() {
         localStorage.clear();
         this.loggedIn = false;
+                this.router.navigate(['login']);
     }
 
 
