@@ -53,12 +53,11 @@ export class ApiService {
     }
 
     createLoan (id: number, signature: string, user_id: number): Observable<Device> {
-      const LOAN_CREATION_URL = `localhost:3000/api/devices/${id}/loans`;
       let body = JSON.stringify({ signature, user_id });
       let headers = new Headers({ 'Content-Type': 'application/json' });
       let options = new RequestOptions({ headers: headers });
 
-      return this.http.post(LOAN_CREATION_URL, body, options)
+      return this.http.post(`http://localhost:3000/api/devices/${id}/loans`, body, options)
                       .map(this.extractData)
                       .catch(this.handleError);
     }

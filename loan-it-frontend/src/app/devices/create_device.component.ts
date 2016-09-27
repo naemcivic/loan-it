@@ -25,6 +25,6 @@ export class CreateDeviceComponent implements OnInit {
     if (!name) { return; }
     this.api.createDevice(name, group_id)
                      .subscribe(
-                       device  => this.all_groups.push(device);
+                       device  => this.all_groups.push(device));
   }
 }
