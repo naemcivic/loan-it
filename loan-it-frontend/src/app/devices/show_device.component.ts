@@ -18,7 +18,8 @@ export class ShowDeviceComponent implements OnInit {
   ngOnInit() {
     this.route.params.forEach((params: Params) => {
      let device_id = +params['id']; // (+) converts string 'id' to a number
-     this.api.showDevice(device_id).subscribe(result => this.device = result);
+     this.api.showDevice(device_id)
+         .subscribe(result => this.device = result);
    });
   }
 

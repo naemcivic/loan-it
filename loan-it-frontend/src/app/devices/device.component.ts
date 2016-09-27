@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Device } from '../shared/device';
+import { User } from '../shared/user';
 import { ApiService } from '../shared';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
@@ -25,6 +26,10 @@ export class DeviceComponent implements OnInit {
 
   onSelect(device: Device) {
     this.router.navigate(['/device', device.id]);
+  }
+
+  createLoan(device: Device) {
+    this.router.navigate(['/device/'+ device.id +'/createloan']);
   }
 
 }

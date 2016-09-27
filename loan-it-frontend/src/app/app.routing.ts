@@ -14,9 +14,9 @@ const routes: Routes = [
   { path: 'devices', component: DeviceComponent},
   { path: 'brokendevices', component: BrokenDeviceComponent, canActivate: [LoggedInGuard] },
   { path: 'createdevice', component: CreateDeviceComponent },
-  { path: 'createloan', component: CreateLoanComponent },
   { path: 'device/:id', component: ShowDeviceComponent },
-    { path: 'login', component: LoginComponent }
+  { path: 'login', component: LoginComponent },
+  { path: 'device/:id/createloan', component: CreateLoanComponent }
 ];
 
 export const routing = RouterModule.forRoot(routes);

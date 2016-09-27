@@ -49,6 +49,10 @@ class Device < ApplicationRecord
   	active_incident_report.present? ? name : nil
   end
 
+  def loanee_name
+  	active_loan.present? ? active_loan.user.name : nil
+  end
+
 
 	# def is_usable?
 	# 	true if (self.incident_reports.count != 0) && self.incident_reports.last[:usable]
