@@ -19,18 +19,18 @@ export class UserService {
                 JSON.stringify({ email, password }),
                 { headers }
             )
-            // .map(res => res.json())
+            .map(res => res.json())
             .map((res) => {
-                if (res.status === 200) {
-                    localStorage.setItem('auth_token', res.json().auth_token);
+                if (res.success) {
+                    localStorage.setItem('auth_token', res.auth_token);
                     this.loggedIn = true;
-                }
-
-                return true;
+                    console.log(res.success)
+            }
+                return res.success;
             });
     }
 
-    logout() {
+    logOut() {
         localStorage.removeItem('auth_token');
         this.loggedIn = false;
     }

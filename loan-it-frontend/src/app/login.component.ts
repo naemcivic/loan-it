@@ -15,13 +15,13 @@ export class LoginComponent {
     login(email, password) {
         this.userService.userLogin(this.model.email, this.model.password).subscribe((result) => {
             if (result) {
-                console.log('yes')
                 this.router.navigate(['devices']);
             }
         });
     }
 
     logOut(){
-        this.userService.logout();
+        this.userService.logOut();
+        this.router.navigate(['/']);
     } 
 }
