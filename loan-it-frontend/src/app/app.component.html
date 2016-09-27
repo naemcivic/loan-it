@@ -2,10 +2,15 @@
 	<nav>
     <div class="nav-wrapper">
       <a href="#" class="brand-logo center">Loan-it</a>
-      <ul id="nav-mobile" class="left hide-on-med-and-down">
-        <li *ngIf="userService.isLoggedIn() === false"><a [routerLink]="['login']">Sign-in</a></li>
-        <li *ngIf="userService.isLoggedIn()" (click)="userService.logOut()"><a>Sign-out</a></li>
-        <li *ngIf="userService.isLoggedIn()"><a [routerLink]="['brokendevices']">Broken Devices</a></li>
+      <ul id="nav-mobile">
+        <div class="left hide-on-med-and-down col s6">
+          <li *ngIf="userService.isLoggedIn() === false"><a [routerLink]="['login']">Sign-in</a></li>
+          <li *ngIf="userService.isLoggedIn()" (click)="userService.logOut()"><a>Sign-out</a></li>
+          <li *ngIf="userService.isLoggedIn()"><a [routerLink]="['brokendevices']">Broken Devices</a></li>
+        </div>
+        <div class="right hide-on-med-and-down col s6"> 
+          <li> Hello {{userName}}!</li>
+        </div>
       </ul>
     </div>
   </nav>
