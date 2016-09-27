@@ -10,13 +10,13 @@ import { LoginComponent } from './login.component';
 import { LoggedInGuard } from './logged-in.guard';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/devices', pathMatch: 'full' },
-  { path: 'devices', component: DeviceComponent},
-  { path: 'brokendevices', component: BrokenDeviceComponent, canActivate: [LoggedInGuard] },
-  { path: 'createdevice', component: CreateDeviceComponent },
-  { path: 'device/:id', component: ShowDeviceComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'devices', component: DeviceComponent, canActivate: [LoggedInGuard]},
+  { path: 'brokendevices', component: BrokenDeviceComponent, canActivate: [LoggedInGuard]},
+  { path: 'createdevice', component: CreateDeviceComponent, canActivate: [LoggedInGuard] },
+  { path: 'device/:id', component: ShowDeviceComponent, canActivate: [LoggedInGuard] },
   { path: 'login', component: LoginComponent },
-  { path: 'device/:id/createloan', component: CreateLoanComponent }
+  { path: 'device/:id/createloan', component: CreateLoanComponent, canActivate: [LoggedInGuard] }
 ];
 
 export const routing = RouterModule.forRoot(routes);
