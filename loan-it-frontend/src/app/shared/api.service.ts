@@ -1,6 +1,8 @@
 import { Injectable }    from '@angular/core';
 import { RequestOptions, Headers, Http, Response } from '@angular/http';
 import { Device } from './device';
+import { User } from './user';
+
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -58,6 +60,12 @@ export class ApiService {
       let options = new RequestOptions({ headers: headers });
 
       return this.http.post(`http://localhost:3000/api/devices/${id}/loans`, body, options)
+                      .map(this.extractData)
+                      .catch(this.handleError);
+    }
+
+    relinquishLoan (id: number, loan_id: number): Observable<Device> {
+      return this.http.delete(`http://localhost:3000/api/devices/${id}/loans/${loan_id}`)
                       .map(this.extractData)
                       .catch(this.handleError);
     }

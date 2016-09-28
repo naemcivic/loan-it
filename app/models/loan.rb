@@ -32,4 +32,5 @@ class Loan < ApplicationRecord
   def name
     try(:user).try(:name) || "No Name"
   end
+
 end
