@@ -68,11 +68,6 @@ export class ApiService {
                       .map(this.extractData)
                       .catch(this.handleError);
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/relinquish-device
-
 
     handleError(error: any) {
         console.error(error);
