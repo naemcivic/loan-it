@@ -8,7 +8,7 @@
           <li *ngIf="userService.isLoggedIn()"><a [routerLink]="['brokendevices']">Broken Devices</a></li>
           <li *ngIf="userService.isLoggedIn()"><a [routerLink]="['createdevice']">Create Device</a></li>
         </div>
-        <div *ngIf="userName" class="right hide-on-med-and-down col s6"> 
+        <div *ngIf="userName" class="right hide-on-med-and-down col s6">
           <li> Hello {{userName}}!</li>
         </div>
       </ul>

@@ -63,6 +63,11 @@ export class ApiService {
                       .catch(this.handleError);
     }
 
+    relinquishLoan (id: number, loan_id: number): Observable<Device> {
+      return this.http.delete(`http://localhost:3000/api/devices/${id}/loans/${loan_id}`)
+                      .map(this.extractData)
+                      .catch(this.handleError);
+    }
 
 
     handleError(error: any) {
