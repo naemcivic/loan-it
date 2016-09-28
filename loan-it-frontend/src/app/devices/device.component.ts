@@ -4,9 +4,6 @@ import { User } from '../shared/user';
 import { ApiService } from '../shared';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
-
-// import '../style/app.scss';
-
 @Component({
   selector: 'app-devices', // <my-app></my-app>
   templateUrl: './device.component.html',
