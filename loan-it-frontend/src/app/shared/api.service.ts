@@ -1,6 +1,7 @@
 import { Injectable }    from '@angular/core';
 import { RequestOptions, Headers, Http, Response } from '@angular/http';
 import { Device } from './device';
+import { User } from './user';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
