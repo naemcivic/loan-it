@@ -33,8 +33,6 @@ export class DeviceComponent implements OnInit {
   }
 
   relinquishLoan(device: Device) {
-    this.api.relinquishLoan(device.id, device.loan_id).subscribe(
-                       device  => this.all_groups.push(device));;
-    this.router.navigate(['/device', device.id]);
+    this.router.navigate(['/device/' + device.id + '/relinquishloan/' + device.loan_id]);
   }
 }

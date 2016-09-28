@@ -69,7 +69,6 @@ export class ApiService {
                       .catch(this.handleError);
     }
 
-
     handleError(error: any) {
         console.error(error);
         return Observable.throw(error.json().error || 'Server error');
