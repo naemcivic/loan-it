@@ -12,6 +12,7 @@
 			          <div class="col s6" align="right">
 			         	 <div *ngIf = 'device.loanee_name'>
 				          	<td>{{device.loanee_name}}</td>
+				          	<td (click)="relinquishLoan(device)"><a>Relinquish Device</a></td>
 				          </div>
 				         <div *ngIf = '!device.loanee_name'>
 				           <td (click)="createLoan(device)"><a><i class="material-icons">forward</i></a></td>

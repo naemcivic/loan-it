@@ -32,4 +32,7 @@ export class DeviceComponent implements OnInit {
     this.router.navigate(['/device/'+ device.id +'/createloan']);
   }
 
+  relinquishLoan(device: Device) {
+    this.router.navigate(['/device/' + device.id + '/relinquishloan/' + device.loan_id]);
+  }
 }
